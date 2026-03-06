@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIS Selfhosted</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+    .container { max-width: 700px; margin: 80px auto; padding: 40px; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1 { font-size: 1.8em; margin-bottom: 8px; }
+    .subtitle { color: #666; margin-bottom: 32px; }
+    .links { display: flex; flex-direction: column; gap: 12px; }
+    .links a {
+      display: block; padding: 16px 20px; border-radius: 8px; text-decoration: none;
+      color: #fff; font-weight: 500; font-size: 1.05em; transition: opacity .2s;
+    }
+    .links a:hover { opacity: .85; }
+    .bg-blue { background: #2563eb; }
+    .bg-green { background: #16a34a; }
+    .bg-gray { background: #475569; }
+    .desc { font-size: .85em; font-weight: 400; opacity: .85; margin-top: 4px; }
+    .footer { margin-top: 32px; text-align: center; }
+    .footer a { color: #2563eb; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KIS Selfhosted</h1>
+    <p class="subtitle">한국투자증권 Open API 기반 셀프호스팅 트레이딩 플랫폼</p>
+    <div class="links">
+      <a href="/strategy/" class="bg-blue">
+        Strategy Builder
+        <div class="desc">80개 기술지표로 매매 전략 설계 + 실시간 시그널/주문</div>
+      </a>
+      <a href="/backtest/" class="bg-green">
+        Backtester
+        <div class="desc">QuantConnect Lean 기반 과거 데이터 백테스팅</div>
+      </a>
+      <a href="{{ github_url }}" class="bg-gray" target="_blank" rel="noopener">
+        GitHub Repository
+        <div class="desc">소스 코드 및 문서</div>
+      </a>
+    </div>
+    <div class="footer">
+      <p><a href="{{ github_url }}" target="_blank" rel="noopener">{{ github_url }}</a></p>
+    </div>
+  </div>
+</body>
+</html>

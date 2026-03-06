@@ -1,0 +1,24 @@
+FROM node:22-alpine AS deps
+WORKDIR /app
+COPY strategy_builder/frontend/package.json strategy_builder/frontend/package-lock.json* ./
+RUN npm ci || npm install
+
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY strategy_builder/frontend/ .
+ENV NEXT_BUILD_STANDALONE=1
+ENV NEXT_PUBLIC_BASE_PATH=/strategy
+ENV BACKEND_URL=http://strategy-backend:8000
+RUN npm run build
+
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_PUBLIC_BASE_PATH=/strategy
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
+EXPOSE 3000
+CMD ["node", "server.js"]

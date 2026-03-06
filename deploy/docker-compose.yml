@@ -1,0 +1,117 @@
+version: "3.8"
+
+services:
+  admin-gateway:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.admin
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    environment:
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
+      - KIS_CONFIG_DIR=/app/kis-config
+      - KIS_APP_KEY=${KIS_APP_KEY:-}
+      - KIS_APP_SECRET=${KIS_APP_SECRET:-}
+      - KIS_PAPER_APP_KEY=${KIS_PAPER_APP_KEY:-}
+      - KIS_PAPER_APP_SECRET=${KIS_PAPER_APP_SECRET:-}
+      - KIS_HTS_ID=${KIS_HTS_ID:-}
+      - KIS_ACCT_STOCK=${KIS_ACCT_STOCK:-}
+      - KIS_ACCT_FUTURE=${KIS_ACCT_FUTURE:-}
+      - KIS_PAPER_STOCK=${KIS_PAPER_STOCK:-}
+      - KIS_PAPER_FUTURE=${KIS_PAPER_FUTURE:-}
+      - KIS_PROD_TYPE=${KIS_PROD_TYPE:-01}
+      - GITHUB_URL=${GITHUB_URL:-https://github.com/koreainvestment/open-trading-api}
+    volumes:
+      - kis-config:/app/kis-config
+    depends_on:
+      - strategy-backend
+      - strategy-frontend
+      - backtest-backend
+      - backtest-frontend
+      - backtest-mcp
+      - trading-mcp
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  strategy-backend:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.strategy-backend
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - CORS_ORIGINS=*
+    volumes:
+      - kis-config:/app/kis-config
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  strategy-frontend:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.strategy-frontend
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  backtest-backend:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.backtest-backend
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - CORS_ORIGINS=*
+    volumes:
+      - kis-config:/app/kis-config
+      - lean-workspace:/app/.lean-workspace
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  backtest-frontend:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.backtest-frontend
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  backtest-mcp:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.backtest-mcp
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=3846
+    volumes:
+      - kis-config:/app/kis-config
+      - lean-workspace:/app/.lean-workspace
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  trading-mcp:
+    build:
+      context: "../MCP/Kis Trading MCP"
+    environment:
+      - MCP_TYPE=streamable-http
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=3100
+      - KIS_CONFIG_DIR=/app/kis-config
+    volumes:
+      - kis-config:/app/kis-config
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+volumes:
+  kis-config:
+  lean-workspace:
+
+networks:
+  kis-net:
+    driver: bridge

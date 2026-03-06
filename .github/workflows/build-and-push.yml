@@ -1,0 +1,67 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        include:
+          - service: admin
+            dockerfile: deploy/dockerfiles/Dockerfile.admin
+            context: .
+          - service: strategy-backend
+            dockerfile: deploy/dockerfiles/Dockerfile.strategy-backend
+            context: .
+          - service: strategy-frontend
+            dockerfile: deploy/dockerfiles/Dockerfile.strategy-frontend
+            context: .
+          - service: backtest-backend
+            dockerfile: deploy/dockerfiles/Dockerfile.backtest-backend
+            context: .
+          - service: backtest-frontend
+            dockerfile: deploy/dockerfiles/Dockerfile.backtest-frontend
+            context: .
+          - service: backtest-mcp
+            dockerfile: deploy/dockerfiles/Dockerfile.backtest-mcp
+            context: .
+          - service: trading-mcp
+            dockerfile: "MCP/Kis Trading MCP/Dockerfile"
+            context: "MCP/Kis Trading MCP"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set image name
+        id: meta
+        run: |
+          echo "image=${{ env.REGISTRY }}/${{ github.repository_owner }}/kis-${{ matrix.service }}" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          push: true
+          tags: |
+            ${{ steps.meta.outputs.image }}:latest
+            ${{ steps.meta.outputs.image }}:${{ github.sha }}

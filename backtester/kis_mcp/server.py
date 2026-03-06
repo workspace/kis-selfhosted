@@ -47,7 +47,7 @@ logger = logging.getLogger(__name__)
 
 # ─── FastMCP App ───────────────────────────────────────────────────────────────
 
-_host = os.environ.get("MCP_HOST", "127.0.0.1")
+_host = os.environ.get("MCP_HOST", "0.0.0.0")
 _port = int(os.environ.get("MCP_PORT", "3846"))
 
 mcp = FastMCP(

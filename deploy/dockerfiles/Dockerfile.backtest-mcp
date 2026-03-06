@@ -1,0 +1,17 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+RUN pip install uv
+
+COPY backtester/pyproject.toml backtester/uv.lock* ./
+RUN if [ -f uv.lock ]; then uv sync --frozen; else uv sync; fi
+
+COPY backtester/ .
+
+ENV KIS_CONFIG_DIR=/app/kis-config
+ENV MCP_HOST=0.0.0.0
+ENV MCP_PORT=3846
+
+EXPOSE 3846
+CMD ["uv", "run", "python", "kis_mcp/server.py"]

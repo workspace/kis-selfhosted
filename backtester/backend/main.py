@@ -79,7 +79,8 @@ KIS2 독립형 전략 프레임워크 API
 # CORS 설정
 # ============================================
 
-ALLOWED_ORIGINS = [
+_extra = [o for o in os.environ.get("CORS_ORIGINS", "").split(",") if o]
+ALLOWED_ORIGINS = _extra + [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3002",

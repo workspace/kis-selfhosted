@@ -1,0 +1,15 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+RUN pip install uv
+
+COPY strategy_builder/pyproject.toml strategy_builder/uv.lock* ./
+RUN if [ -f uv.lock ]; then uv sync --frozen; else uv sync; fi
+
+COPY strategy_builder/ .
+
+ENV KIS_CONFIG_DIR=/app/kis-config
+
+EXPOSE 8000
+CMD ["uv", "run", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
