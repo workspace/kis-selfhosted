@@ -5,7 +5,7 @@ WORKDIR /app
 RUN pip install uv
 
 COPY strategy_builder/pyproject.toml strategy_builder/uv.lock* ./
-RUN if [ -f uv.lock ]; then uv sync --frozen; else uv sync; fi
+RUN uv sync --no-install-project
 
 COPY strategy_builder/ .
 
