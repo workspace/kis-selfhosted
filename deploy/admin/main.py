@@ -6,7 +6,7 @@ import os
 from urllib.parse import urlencode
 
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.templating import Jinja2Templates
 import uvicorn
 
@@ -272,7 +272,7 @@ async def proxy_middleware(request: Request, call_next):
     """Intercept proxy-able paths before FastAPI router processes them."""
     path = request.url.path
     route = match_route(path)
-    logging.info(f"[middleware] {request.method} {path} -> route={route}")
+    print(f"[middleware] {request.method} {path} -> route={route}", flush=True)
     if route is not None:
         return await proxy_request(request)
     return await call_next(request)
