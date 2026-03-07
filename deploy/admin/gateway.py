@@ -96,6 +96,10 @@ async def proxy_request(request: Request) -> Response:
         if upstream_path == "/mcp":
             upstream_path = "/mcp"
 
+    # Strip trailing slash to avoid Next.js 308 redirect (trailingSlash defaults to false)
+    if upstream_path.endswith("/") and len(upstream_path) > 1:
+        upstream_path = upstream_path.rstrip("/")
+
     upstream_url = f"{upstream_base}{upstream_path}"
     if request.url.query:
         upstream_url += f"?{request.url.query}"
