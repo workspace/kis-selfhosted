@@ -3,7 +3,7 @@
  */
 
 // P1: Frontend 3000 → Backend 8000 (via Next.js rewrites proxy)
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || (process.env.NEXT_PUBLIC_BASE_PATH || "");
 
 export interface ApiResponse<T> {
   status: "success" | "error";
