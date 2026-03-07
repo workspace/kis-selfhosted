@@ -9,83 +9,7 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  # ── 1. 변경된 경로 감지 ──────────────────────────────────
-  detect-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-      has_changes: ${{ steps.set-matrix.outputs.has_changes }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Detect path changes
-        uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            admin:
-              - 'deploy/admin/**'
-              - 'deploy/dockerfiles/Dockerfile.admin'
-            strategy-backend:
-              - 'strategy_builder/**'
-              - 'deploy/dockerfiles/Dockerfile.strategy-backend'
-            strategy-frontend:
-              - 'strategy_builder/**'
-              - 'deploy/dockerfiles/Dockerfile.strategy-frontend'
-            backtest-backend:
-              - 'backtester/**'
-              - 'deploy/dockerfiles/Dockerfile.backtest-backend'
-            backtest-frontend:
-              - 'backtester/**'
-              - 'deploy/dockerfiles/Dockerfile.backtest-frontend'
-            backtest-mcp:
-              - 'backtester/**'
-              - 'deploy/dockerfiles/Dockerfile.backtest-mcp'
-            trading-mcp:
-              - 'MCP/Kis Trading MCP/**'
-
-      - name: Build dynamic matrix
-        id: set-matrix
-        env:
-          CHANGES_JSON: ${{ steps.filter.outputs.changes }}
-          EVENT_NAME: ${{ github.event_name }}
-        run: |
-          # 전체 서비스 정의 (JSON)
-          ALL_SERVICES='[
-            {"service":"admin","dockerfile":"deploy/dockerfiles/Dockerfile.admin","context":"."},
-            {"service":"strategy-backend","dockerfile":"deploy/dockerfiles/Dockerfile.strategy-backend","context":"."},
-            {"service":"strategy-frontend","dockerfile":"deploy/dockerfiles/Dockerfile.strategy-frontend","context":"."},
-            {"service":"backtest-backend","dockerfile":"deploy/dockerfiles/Dockerfile.backtest-backend","context":"."},
-            {"service":"backtest-frontend","dockerfile":"deploy/dockerfiles/Dockerfile.backtest-frontend","context":"."},
-            {"service":"backtest-mcp","dockerfile":"deploy/dockerfiles/Dockerfile.backtest-mcp","context":"."},
-            {"service":"trading-mcp","dockerfile":"MCP/Kis Trading MCP/Dockerfile","context":"MCP/Kis Trading MCP"}
-          ]'
-
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            # 수동 실행: 전체 빌드
-            RESULT="$ALL_SERVICES"
-          else
-            # push: 변경된 서비스만 필터링
-            RESULT=$(echo "$ALL_SERVICES" | jq -c --argjson changes "$CHANGES_JSON" \
-              '[.[] | select(.service as $s | $changes | index($s))]')
-          fi
-
-          count=$(echo "$RESULT" | jq 'length')
-          echo "Changed services ($count): $(echo "$RESULT" | jq -r '[.[].service] | join(", ")')"
-
-          if [ "$count" -gt 0 ]; then
-            echo "matrix={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "matrix={\"include\":[]}" >> "$GITHUB_OUTPUT"
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          fi
-
-  # ── 2. 변경된 이미지만 빌드 & 푸시 ──────────────────────
   build-and-push:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.has_changes == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -93,7 +17,29 @@ jobs:
 
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.detect-changes.outputs.matrix) }}
+      matrix:
+        include:
+          - service: admin
+            dockerfile: deploy/dockerfiles/Dockerfile.admin
+            context: .
+          - service: strategy-backend
+            dockerfile: deploy/dockerfiles/Dockerfile.strategy-backend
+            context: .
+          - service: strategy-frontend
+            dockerfile: deploy/dockerfiles/Dockerfile.strategy-frontend
+            context: .
+          - service: backtest-backend
+            dockerfile: deploy/dockerfiles/Dockerfile.backtest-backend
+            context: .
+          - service: backtest-frontend
+            dockerfile: deploy/dockerfiles/Dockerfile.backtest-frontend
+            context: .
+          - service: backtest-mcp
+            dockerfile: deploy/dockerfiles/Dockerfile.backtest-mcp
+            context: .
+          - service: trading-mcp
+            dockerfile: "MCP/Kis Trading MCP/Dockerfile"
+            context: "MCP/Kis Trading MCP"
 
     steps:
       - name: Checkout
