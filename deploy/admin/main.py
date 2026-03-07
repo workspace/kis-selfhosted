@@ -25,7 +25,7 @@ from oauth import (
 )
 from gateway import proxy_request, match_route
 
-app = FastAPI(title="KIS Admin Gateway", redirect_slashes=False)
+app = FastAPI(title="KIS Admin Gateway")
 templates = Jinja2Templates(directory="templates")
 
 GITHUB_URL = os.environ.get(
@@ -248,14 +248,14 @@ async def logout(request: Request):
     return response
 
 
-# ─── Catch-all: reverse proxy ───────────────────────────────────────────────
+# ─── Reverse proxy middleware ─────────────────────────────────────────────────
 
-@app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"])
-async def catch_all(request: Request, path: str):
-    full_path = f"/{path}"
-    if match_route(full_path) is not None:
+@app.middleware("http")
+async def proxy_middleware(request: Request, call_next):
+    """Intercept proxy-able paths before FastAPI router processes them."""
+    if match_route(request.url.path) is not None:
         return await proxy_request(request)
-    return HTMLResponse("<h1>404 Not Found</h1>", status_code=404)
+    return await call_next(request)
 
 
 # ─── Entry point ─────────────────────────────────────────────────────────────
