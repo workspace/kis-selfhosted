@@ -79,11 +79,16 @@ services:
       - kis-net
     restart: unless-stopped
 
-  lean-pull:
+  lean-init:
     image: docker:cli
-    command: ["docker", "pull", "quantconnect/lean:latest"]
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        cp /usr/local/bin/docker /docker-bin/docker
+        docker pull quantconnect/lean:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - docker-bin:/docker-bin
 
   backtest-backend:
     build:
@@ -97,10 +102,11 @@ services:
       - kis-config:/app/kis-config
       - lean-workspace:/app/.lean-workspace
       - /var/run/docker.sock:/var/run/docker.sock
+      - docker-bin:/docker-bin:ro
     depends_on:
       kis-config-init:
         condition: service_completed_successfully
-      lean-pull:
+      lean-init:
         condition: service_completed_successfully
     networks:
       - kis-net
@@ -152,6 +158,7 @@ services:
 volumes:
   kis-config:
   lean-workspace:
+  docker-bin:
 
 networks:
   kis-net:
