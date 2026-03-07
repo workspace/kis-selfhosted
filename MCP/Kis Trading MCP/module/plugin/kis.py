@@ -32,7 +32,7 @@ def setup_kis_config(force_update=False):
         return True
 
     # 1. kis_devlp.yaml 템플릿 다운로드
-    template_url = "https://raw.githubusercontent.com/koreainvestment/open-trading-api/refs/heads/main/kis_devlp.yaml"
+    template_url = "https://raw.githubusercontent.com/workspace/kis-selfhosted/refs/heads/main/kis_devlp.yaml"
 
     try:
         logging.info("KIS 설정 템플릿을 다운로드 중...")

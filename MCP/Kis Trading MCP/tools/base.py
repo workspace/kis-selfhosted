@@ -49,7 +49,7 @@ class ApiExecutor:
 
     def _download_kis_auth(self, temp_dir: str) -> bool:
         """kis_auth.py 다운로드"""
-        kis_auth_url = "https://raw.githubusercontent.com/koreainvestment/open-trading-api/main/examples_llm/kis_auth.py"
+        kis_auth_url = "https://raw.githubusercontent.com/workspace/kis-selfhosted/main/examples_llm/kis_auth.py"
         kis_auth_path = os.path.join(temp_dir, "kis_auth.py")
         return self._download_file(kis_auth_url, kis_auth_path)
 

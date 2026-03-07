@@ -23,7 +23,7 @@
     "inquire_asking_price": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권현재가(호가)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_asking_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_asking_price",
       "method": "inquire_asking_price",
       "api_path": "/uapi/domestic-bond/v1/quotations/inquire-asking-price",
       "params": {
@@ -74,7 +74,7 @@
     "issue_info": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권 발행정보",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/issue_info",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/issue_info",
       "method": "issue_info",
       "api_path": "/uapi/domestic-bond/v1/quotations/issue-info",
       "params": {
@@ -125,7 +125,7 @@
     "inquire_price": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권현재가(시세)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_price",
       "method": "inquire_price",
       "api_path": "/uapi/domestic-bond/v1/quotations/inquire-price",
       "params": {
@@ -176,7 +176,7 @@
     "search_bond_info": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권 기본조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/search_bond_info",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/search_bond_info",
       "method": "search_bond_info",
       "api_path": "/uapi/domestic-bond/v1/quotations/search-bond-info",
       "params": {
@@ -227,7 +227,7 @@
     "inquire_ccnl": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권현재가(체결)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_ccnl",
       "method": "inquire_ccnl",
       "api_path": "/uapi/domestic-bond/v1/quotations/inquire-ccnl",
       "params": {
@@ -278,7 +278,7 @@
     "inquire_daily_price": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권현재가(일별)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_daily_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_daily_price",
       "method": "inquire_daily_price",
       "api_path": "/uapi/domestic-bond/v1/quotations/inquire-daily-price",
       "params": {
@@ -329,7 +329,7 @@
     "avg_unit": {
       "category": "[장내채권] 기본시세",
       "name": "장내채권 평균단가조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/avg_unit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/avg_unit",
       "method": "avg_unit",
       "api_path": "/uapi/domestic-bond/v1/quotations/avg-unit",
       "params": {
@@ -409,7 +409,7 @@
     "inquire_daily_ccld": {
       "category": "[장내채권] 주문/계좌",
       "name": "장내채권 주문체결내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_daily_ccld",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_daily_ccld",
       "method": "inquire_daily_ccld",
       "api_path": "/uapi/domestic-bond/v1/trading/inquire-daily-ccld",
       "params": {
@@ -523,7 +523,7 @@
     "inquire_psbl_order": {
       "category": "[장내채권] 주문/계좌",
       "name": "장내채권 매수가능조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_psbl_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_psbl_order",
       "method": "inquire_psbl_order",
       "api_path": "/uapi/domestic-bond/v1/trading/inquire-psbl-order",
       "params": {
@@ -588,7 +588,7 @@
     "inquire_balance": {
       "category": "[장내채권] 주문/계좌",
       "name": "장내채권 잔고조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_balance",
       "method": "inquire_balance",
       "api_path": "/uapi/domestic-bond/v1/trading/inquire-balance",
       "params": {
@@ -656,7 +656,7 @@
     "order_rvsecncl": {
       "category": "[장내채권] 주문/계좌",
       "name": "장내채권 정정취소주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/order_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/order_rvsecncl",
       "method": "order_rvsecncl",
       "api_path": "/uapi/domestic-bond/v1/trading/order-rvsecncl",
       "params": {
@@ -742,7 +742,7 @@
     "buy": {
       "category": "[장내채권] 주문/계좌",
       "name": "장내채권 매수주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/buy",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/buy",
       "method": "buy",
       "api_path": "/uapi/domestic-bond/v1/trading/buy",
       "params": {
@@ -828,7 +828,7 @@
     "inquire_psbl_rvsecncl": {
       "category": "[장내채권] 주문/계좌",
       "name": "채권정정취소가능주문조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/inquire_psbl_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/inquire_psbl_rvsecncl",
       "method": "inquire_psbl_rvsecncl",
       "api_path": "/uapi/domestic-bond/v1/trading/inquire-psbl-rvsecncl",
       "params": {
@@ -907,7 +907,7 @@
     "sell": {
       "category": "[장내채권] 주문/계좌",
       "name": "장내채권 매도주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_bond/sell",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_bond/sell",
       "method": "sell",
       "api_path": "/uapi/domestic-bond/v1/trading/sell",
       "params": {

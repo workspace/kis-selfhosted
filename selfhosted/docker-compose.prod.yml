@@ -67,7 +67,7 @@ services:
       - CLIENT_ID=${CLIENT_ID}
       - CLIENT_SECRET=${CLIENT_SECRET}
       - JWT_SECRET=${JWT_SECRET}
-      - GITHUB_URL=${GITHUB_URL:-https://github.com/koreainvestment/open-trading-api}
+      - GITHUB_URL=${GITHUB_URL:-https://github.com/workspace/kis-selfhosted}
     volumes:
       - kis-config:/app/kis-config
     depends_on:

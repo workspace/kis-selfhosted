@@ -23,7 +23,7 @@
     "inquire_price": {
       "category": "[국내주식] 기본시세",
       "name": "ETF/ETN 현재가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/etfetn/inquire_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/etfetn/inquire_price",
       "method": "inquire_price",
       "api_path": "/uapi/etfetn/v1/quotations/inquire-price",
       "params": {
@@ -46,7 +46,7 @@
     "nav_comparison_trend": {
       "category": "[국내주식] 기본시세",
       "name": "NAV 비교추이(종목)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/etfetn/nav_comparison_trend",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/etfetn/nav_comparison_trend",
       "method": "nav_comparison_trend",
       "api_path": "/uapi/etfetn/v1/quotations/nav-comparison-trend",
       "params": {

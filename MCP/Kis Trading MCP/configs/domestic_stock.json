@@ -23,7 +23,7 @@
     "inquire_elw_price": {
       "category": "[국내주식] ELW시세",
       "name": "ELW 현재가 시세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_elw_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_elw_price",
       "method": "inquire_elw_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-elw-price",
       "params": {
@@ -81,7 +81,7 @@
     "inquire_price": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 시세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_price",
       "method": "inquire_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-price",
       "params": {
@@ -111,7 +111,7 @@
     "inquire_asking_price_exp_ccn": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 호가/예상체결",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_asking_price_exp_ccn",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_asking_price_exp_ccn",
       "method": "inquire_asking_price_exp_ccn",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-asking-price-exp-ccn",
       "params": {
@@ -141,7 +141,7 @@
     "inquire_time_itemchartprice": {
       "category": "[국내주식] 기본시세",
       "name": "주식당일분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_time_itemchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_time_itemchartprice",
       "method": "inquire_time_itemchartprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-time-itemchartprice",
       "params": {
@@ -192,7 +192,7 @@
     "inquire_daily_itemchartprice": {
       "category": "[국내주식] 기본시세",
       "name": "국내주식기간별시세(일/주/월/년)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_daily_itemchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_daily_itemchartprice",
       "method": "inquire_daily_itemchartprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-daily-itemchartprice",
       "params": {
@@ -250,7 +250,7 @@
     "inquire_time_dailychartprice": {
       "category": "[국내주식] 기본시세",
       "name": "주식일별분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_time_dailychartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_time_dailychartprice",
       "method": "inquire_time_dailychartprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-time-dailychartprice",
       "params": {
@@ -301,7 +301,7 @@
     "inquire_ccnl": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 체결",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_ccnl",
       "method": "inquire_ccnl",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-ccnl",
       "params": {
@@ -331,7 +331,7 @@
     "inquire_time_itemconclusion": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 당일시간대별체결",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_time_itemconclusion",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_time_itemconclusion",
       "method": "inquire_time_itemconclusion",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-time-itemconclusion",
       "params": {
@@ -368,7 +368,7 @@
     "inquire_daily_price": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 일자별",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_daily_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_daily_price",
       "method": "inquire_daily_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-daily-price",
       "params": {
@@ -412,7 +412,7 @@
     "inquire_investor": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 투자자",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_investor",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_investor",
       "method": "inquire_investor",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-investor",
       "params": {
@@ -442,7 +442,7 @@
     "inquire_overtime_price": {
       "category": "[국내주식] 기본시세",
       "name": "국내주식 시간외현재가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_overtime_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_overtime_price",
       "method": "inquire_overtime_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-overtime-price",
       "params": {
@@ -465,7 +465,7 @@
     "inquire_price_2": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 시세2",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_price_2",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_price_2",
       "method": "inquire_price_2",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-price-2",
       "params": {
@@ -488,7 +488,7 @@
     "inquire_daily_overtimeprice": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 시간외일자별주가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_daily_overtimeprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_daily_overtimeprice",
       "method": "inquire_daily_overtimeprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-daily-overtimeprice",
       "params": {
@@ -518,7 +518,7 @@
     "inquire_time_overtimeconclusion": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 시간외시간별체결",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_time_overtimeconclusion",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_time_overtimeconclusion",
       "method": "inquire_time_overtimeconclusion",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-time-overtimeconclusion",
       "params": {
@@ -555,7 +555,7 @@
     "inquire_member": {
       "category": "[국내주식] 기본시세",
       "name": "주식현재가 회원사",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_member",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_member",
       "method": "inquire_member",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-member",
       "params": {
@@ -585,7 +585,7 @@
     "inquire_overtime_asking_price": {
       "category": "[국내주식] 기본시세",
       "name": "국내주식 시간외호가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_overtime_asking_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_overtime_asking_price",
       "method": "inquire_overtime_asking_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-overtime-asking-price",
       "params": {
@@ -608,7 +608,7 @@
     "fluctuation": {
       "category": "[국내주식] 순위분석",
       "name": "국내주식 등락률 순위",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/fluctuation",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/fluctuation",
       "method": "fluctuation",
       "api_path": "/uapi/domestic-stock/v1/ranking/fluctuation",
       "params": {
@@ -729,7 +729,7 @@
     "volume_rank": {
       "category": "[국내주식] 순위분석",
       "name": "거래량순위",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/volume_rank",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/volume_rank",
       "method": "volume_rank",
       "api_path": "/uapi/domestic-stock/v1/quotations/volume-rank",
       "params": {
@@ -829,7 +829,7 @@
     "market_cap": {
       "category": "[국내주식] 순위분석",
       "name": "국내주식 시가총액 상위",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/market_cap",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/market_cap",
       "method": "market_cap",
       "api_path": "/uapi/domestic-stock/v1/ranking/market-cap",
       "params": {
@@ -915,7 +915,7 @@
     "volume_power": {
       "category": "[국내주식] 순위분석",
       "name": "국내주식 체결강도 상위",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/volume_power",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/volume_power",
       "method": "volume_power",
       "api_path": "/uapi/domestic-stock/v1/ranking/volume-power",
       "params": {
@@ -1015,7 +1015,7 @@
     "intstock_multprice": {
       "category": "[국내주식] 시세분석",
       "name": "관심종목(멀티종목) 시세조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/intstock_multprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/intstock_multprice",
       "method": "intstock_multprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/intstock-multprice",
       "params": {
@@ -1444,7 +1444,7 @@
     "psearch_result": {
       "category": "[국내주식] 시세분석",
       "name": "종목조건검색조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/psearch_result",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/psearch_result",
       "method": "psearch_result",
       "api_path": "/uapi/domestic-stock/v1/quotations/psearch-result",
       "params": {
@@ -1460,7 +1460,7 @@
     "inquire_member_daily": {
       "category": "[국내주식] 시세분석",
       "name": "주식현재가 회원사 종목매매동향",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_member_daily",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_member_daily",
       "method": "inquire_member_daily",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-member-daily",
       "params": {
@@ -1511,7 +1511,7 @@
     "psearch_title": {
       "category": "[국내주식] 시세분석",
       "name": "종목조건검색 목록조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/psearch_title",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/psearch_title",
       "method": "psearch_title",
       "api_path": "/uapi/domestic-stock/v1/quotations/psearch-title",
       "params": {
@@ -1527,7 +1527,7 @@
     "investor_trend_estimate": {
       "category": "[국내주식] 시세분석",
       "name": "종목별 외인기관 추정가집계",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/investor_trend_estimate",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/investor_trend_estimate",
       "method": "investor_trend_estimate",
       "api_path": "/uapi/domestic-stock/v1/quotations/investor-trend-estimate",
       "params": {
@@ -1543,7 +1543,7 @@
     "comp_program_trade_daily": {
       "category": "[국내주식] 시세분석",
       "name": "프로그램매매 종합현황(일별)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/comp_program_trade_daily",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/comp_program_trade_daily",
       "method": "comp_program_trade_daily",
       "api_path": "/uapi/domestic-stock/v1/quotations/comp-program-trade-daily",
       "params": {
@@ -1580,7 +1580,7 @@
     "inquire_daily_trade_volume": {
       "category": "[국내주식] 시세분석",
       "name": "종목별일별매수매도체결량",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_daily_trade_volume",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_daily_trade_volume",
       "method": "inquire_daily_trade_volume",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-daily-trade-volume",
       "params": {
@@ -1624,7 +1624,7 @@
     "intstock_stocklist_by_group": {
       "category": "[국내주식] 시세분석",
       "name": "관심종목 그룹별 종목조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/intstock_stocklist_by_group",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/intstock_stocklist_by_group",
       "method": "intstock_stocklist_by_group",
       "api_path": "/uapi/domestic-stock/v1/quotations/intstock-stocklist-by-group",
       "params": {
@@ -1689,7 +1689,7 @@
     "inquire_investor_time_by_market": {
       "category": "[국내주식] 시세분석",
       "name": "시장별 투자자매매동향(시세)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_investor_time_by_market",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_investor_time_by_market",
       "method": "inquire_investor_time_by_market",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-investor-time-by-market",
       "params": {
@@ -1712,7 +1712,7 @@
     "program_trade_by_stock_daily": {
       "category": "[국내주식] 시세분석",
       "name": "종목별 프로그램매매추이(일별)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/program_trade_by_stock_daily",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/program_trade_by_stock_daily",
       "method": "program_trade_by_stock_daily",
       "api_path": "/uapi/domestic-stock/v1/quotations/program-trade-by-stock-daily",
       "params": {
@@ -1742,7 +1742,7 @@
     "program_trade_by_stock": {
       "category": "[국내주식] 시세분석",
       "name": "종목별 프로그램매매추이(체결)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/program_trade_by_stock",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/program_trade_by_stock",
       "method": "program_trade_by_stock",
       "api_path": "/uapi/domestic-stock/v1/quotations/program-trade-by-stock",
       "params": {
@@ -1765,7 +1765,7 @@
     "daily_short_sale": {
       "category": "[국내주식] 시세분석",
       "name": "국내주식 공매도 일별추이",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/daily_short_sale",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/daily_short_sale",
       "method": "daily_short_sale",
       "api_path": "/uapi/domestic-stock/v1/quotations/daily-short-sale",
       "params": {
@@ -1802,7 +1802,7 @@
     "frgnmem_trade_trend": {
       "category": "[국내주식] 시세분석",
       "name": "회원사 실시간 매매동향(틱)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/frgnmem_trade_trend",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/frgnmem_trade_trend",
       "method": "frgnmem_trade_trend",
       "api_path": "/uapi/domestic-stock/v1/quotations/frgnmem-trade-trend",
       "params": {
@@ -1888,7 +1888,7 @@
     "frgnmem_pchs_trend": {
       "category": "[국내주식] 시세분석",
       "name": "종목별 외국계 순매수추이",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/frgnmem_pchs_trend",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/frgnmem_pchs_trend",
       "method": "frgnmem_pchs_trend",
       "api_path": "/uapi/domestic-stock/v1/quotations/frgnmem-pchs-trend",
       "params": {
@@ -1918,7 +1918,7 @@
     "foreign_institution_total": {
       "category": "[국내주식] 시세분석",
       "name": "국내기관_외국인 매매종목가집계",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/foreign_institution_total",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/foreign_institution_total",
       "method": "foreign_institution_total",
       "api_path": "/uapi/domestic-stock/v1/quotations/foreign-institution-total",
       "params": {
@@ -1969,7 +1969,7 @@
     "daily_loan_trans": {
       "category": "[국내주식] 시세분석",
       "name": "종목별 일별 대차거래추이",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/daily_loan_trans",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/daily_loan_trans",
       "method": "daily_loan_trans",
       "api_path": "/uapi/domestic-stock/v1/quotations/daily-loan-trans",
       "params": {
@@ -2006,7 +2006,7 @@
     "inquire_investor_daily_by_market": {
       "category": "[국내주식] 시세분석",
       "name": "시장별 투자자매매동향(일별)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_investor_daily_by_market",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_investor_daily_by_market",
       "method": "inquire_investor_daily_by_market",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-investor-daily-by-market",
       "params": {
@@ -2057,7 +2057,7 @@
     "investor_program_trade_today": {
       "category": "[국내주식] 시세분석",
       "name": "프로그램매매 투자자매매동향(당일)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/investor_program_trade_today",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/investor_program_trade_today",
       "method": "investor_program_trade_today",
       "api_path": "/uapi/domestic-stock/v1/quotations/investor-program-trade-today",
       "params": {
@@ -2073,7 +2073,7 @@
     "news_title": {
       "category": "[국내주식] 업종/기타",
       "name": "종합 시황/공시(제목)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/news_title",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/news_title",
       "method": "news_title",
       "api_path": "/uapi/domestic-stock/v1/quotations/news-title",
       "params": {
@@ -2166,7 +2166,7 @@
     "inquire_index_price": {
       "category": "[국내주식] 업종/기타",
       "name": "국내업종 현재지수",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_index_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_index_price",
       "method": "inquire_index_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-index-price",
       "params": {
@@ -2217,7 +2217,7 @@
     "chk_holiday": {
       "category": "[국내주식] 업종/기타",
       "name": "국내휴장일조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/chk_holiday",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/chk_holiday",
       "method": "chk_holiday",
       "api_path": "/uapi/domestic-stock/v1/quotations/chk-holiday",
       "params": {
@@ -2257,7 +2257,7 @@
     "inquire_daily_indexchartprice": {
       "category": "[국내주식] 업종/기타",
       "name": "국내주식업종기간별시세(일/주/월/년)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_daily_indexchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_daily_indexchartprice",
       "method": "inquire_daily_indexchartprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-daily-indexchartprice",
       "params": {
@@ -2343,7 +2343,7 @@
     "inquire_time_indexchartprice": {
       "category": "[국내주식] 업종/기타",
       "name": "업종 분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_time_indexchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_time_indexchartprice",
       "method": "inquire_time_indexchartprice",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-time-indexchartprice",
       "params": {
@@ -2422,7 +2422,7 @@
     "inquire_vi_status": {
       "category": "[국내주식] 업종/기타",
       "name": "변동성완화장치(VI) 현황",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_vi_status",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_vi_status",
       "method": "inquire_vi_status",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-vi-status",
       "params": {
@@ -2515,7 +2515,7 @@
     "inquire_index_daily_price": {
       "category": "[국내주식] 업종/기타",
       "name": "국내업종 일자별지수",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_index_daily_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_index_daily_price",
       "method": "inquire_index_daily_price",
       "api_path": "/uapi/domestic-stock/v1/quotations/inquire-index-daily-price",
       "params": {
@@ -2587,7 +2587,7 @@
     "search_info": {
       "category": "[국내주식] 종목정보",
       "name": "상품기본조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/search_info",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/search_info",
       "method": "search_info",
       "api_path": "/uapi/domestic-stock/v1/quotations/search-info",
       "params": {
@@ -2638,7 +2638,7 @@
     "search_stock_info": {
       "category": "[국내주식] 종목정보",
       "name": "주식기본조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/search_stock_info",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/search_stock_info",
       "method": "search_stock_info",
       "api_path": "/uapi/domestic-stock/v1/quotations/search-stock-info",
       "params": {
@@ -2689,7 +2689,7 @@
     "inquire_balance": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식잔고조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_balance",
       "method": "inquire_balance",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-balance",
       "params": {
@@ -2791,7 +2791,7 @@
     "inquire_daily_ccld": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식일별주문체결조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_daily_ccld",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_daily_ccld",
       "method": "inquire_daily_ccld",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-daily-ccld",
       "params": {
@@ -2934,7 +2934,7 @@
     "inquire_psbl_rvsecncl": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식정정취소가능주문조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_psbl_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_psbl_rvsecncl",
       "method": "inquire_psbl_rvsecncl",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-psbl-rvsecncl",
       "params": {
@@ -2995,7 +2995,7 @@
     "inquire_psbl_order": {
       "category": "[국내주식] 주문/계좌",
       "name": "매수가능조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_psbl_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_psbl_order",
       "method": "inquire_psbl_order",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-psbl-order",
       "params": {
@@ -3060,7 +3060,7 @@
     "inquire_period_profit": {
       "category": "[국내주식] 주문/계좌",
       "name": "기간별손익일별합산조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_period_profit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_period_profit",
       "method": "inquire_period_profit",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-period-profit",
       "params": {
@@ -3155,7 +3155,7 @@
     "inquire_balance_rlz_pl": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식잔고조회_실현손익",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_balance_rlz_pl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_balance_rlz_pl",
       "method": "inquire_balance_rlz_pl",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-balance-rlz-pl",
       "params": {
@@ -3264,7 +3264,7 @@
     "inquire_psbl_sell": {
       "category": "[국내주식] 주문/계좌",
       "name": "매도가능수량조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_psbl_sell",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_psbl_sell",
       "method": "inquire_psbl_sell",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-psbl-sell",
       "params": {
@@ -3322,7 +3322,7 @@
     "order_rvsecncl": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식주문(정정취소)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/order_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/order_rvsecncl",
       "method": "order_rvsecncl",
       "api_path": "/uapi/domestic-stock/v1/trading/order-rvsecncl",
       "params": {
@@ -3415,7 +3415,7 @@
     "order_cash": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식주문(현금)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/order_cash",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/order_cash",
       "method": "order_cash",
       "api_path": "/uapi/domestic-stock/v1/trading/order-cash",
       "params": {
@@ -3501,7 +3501,7 @@
     "intgr_margin": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식통합증거금 현황",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/intgr_margin",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/intgr_margin",
       "method": "intgr_margin",
       "api_path": "/uapi/domestic-stock/v1/trading/intgr-margin",
       "params": {
@@ -3545,7 +3545,7 @@
     "inquire_period_trade_profit": {
       "category": "[국내주식] 주문/계좌",
       "name": "기간별매매손익현황조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_period_trade_profit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_period_trade_profit",
       "method": "inquire_period_trade_profit",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-period-trade-profit",
       "params": {
@@ -3633,7 +3633,7 @@
     "inquire_account_balance": {
       "category": "[국내주식] 주문/계좌",
       "name": "투자계좌자산현황조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_account_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_account_balance",
       "method": "inquire_account_balance",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-account-balance",
       "params": {
@@ -3670,7 +3670,7 @@
     "pension_inquire_balance": {
       "category": "[국내주식] 주문/계좌",
       "name": "퇴직연금 잔고조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/pension_inquire_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/pension_inquire_balance",
       "method": "pension_inquire_balance",
       "api_path": "/uapi/domestic-stock/v1/trading/pension/inquire-balance",
       "params": {
@@ -3737,7 +3737,7 @@
     "pension_inquire_psbl_order": {
       "category": "[국내주식] 주문/계좌",
       "name": "퇴직연금 매수가능조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/pension_inquire_psbl_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/pension_inquire_psbl_order",
       "method": "pension_inquire_psbl_order",
       "api_path": "/uapi/domestic-stock/v1/trading/pension/inquire-psbl-order",
       "params": {
@@ -3795,7 +3795,7 @@
     "order_credit": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식주문(신용)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/order_credit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/order_credit",
       "method": "order_credit",
       "api_path": "/uapi/domestic-stock/v1/trading/order-credit",
       "params": {
@@ -3979,7 +3979,7 @@
     "inquire_credit_psamount": {
       "category": "[국내주식] 주문/계좌",
       "name": "신용매수가능조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/inquire_credit_psamount",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/inquire_credit_psamount",
       "method": "inquire_credit_psamount",
       "api_path": "/uapi/domestic-stock/v1/trading/inquire-credit-psamount",
       "params": {
@@ -4044,7 +4044,7 @@
     "order_resv": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식예약주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/order_resv",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/order_resv",
       "method": "order_resv",
       "api_path": "/uapi/domestic-stock/v1/trading/order-resv",
       "params": {
@@ -4130,7 +4130,7 @@
     "pension_inquire_daily_ccld": {
       "category": "[국내주식] 주문/계좌",
       "name": "퇴직연금 미체결내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/pension_inquire_daily_ccld",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/pension_inquire_daily_ccld",
       "method": "pension_inquire_daily_ccld",
       "api_path": "/uapi/domestic-stock/v1/trading/pension/inquire-daily-ccld",
       "params": {
@@ -4205,7 +4205,7 @@
     "order_resv_ccnl": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식예약주문조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/order_resv_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/order_resv_ccnl",
       "method": "order_resv_ccnl",
       "api_path": "/uapi/domestic-stock/v1/trading/order-resv-ccnl",
       "params": {
@@ -4308,7 +4308,7 @@
     "period_rights": {
       "category": "[국내주식] 주문/계좌",
       "name": "기간별계좌권리현황조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/period_rights",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/period_rights",
       "method": "period_rights",
       "api_path": "/uapi/domestic-stock/v1/trading/period-rights",
       "params": {
@@ -4411,7 +4411,7 @@
     "pension_inquire_deposit": {
       "category": "[국내주식] 주문/계좌",
       "name": "퇴직연금 예수금조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/pension_inquire_deposit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/pension_inquire_deposit",
       "method": "pension_inquire_deposit",
       "api_path": "/uapi/domestic-stock/v1/trading/pension/inquire-deposit",
       "params": {
@@ -4441,7 +4441,7 @@
     "pension_inquire_present_balance": {
       "category": "[국내주식] 주문/계좌",
       "name": "퇴직연금 체결기준잔고",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/pension_inquire_present_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/pension_inquire_present_balance",
       "method": "pension_inquire_present_balance",
       "api_path": "/uapi/domestic-stock/v1/trading/pension/inquire-present-balance",
       "params": {
@@ -4471,7 +4471,7 @@
     "order_resv_rvsecncl": {
       "category": "[국내주식] 주문/계좌",
       "name": "주식예약주문정정취소",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/order_resv_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/order_resv_rvsecncl",
       "method": "order_resv_rvsecncl",
       "api_path": "/uapi/domestic-stock/v1/trading/order-resv-rvsecncl",
       "params": {
@@ -4585,7 +4585,7 @@
     "invest_opbysec": {
       "category": "[국내주식] 종목정보",
       "name": "국내주식 증권사별 투자의견",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/invest_opbysec",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/invest_opbysec",
       "method": "invest_opbysec",
       "api_path": "/uapi/domestic-stock/v1/quotations/invest-opbysec",
       "params": {
@@ -4664,7 +4664,7 @@
     "invest_opinion": {
       "category": "[국내주식] 종목정보",
       "name": "국내주식 종목투자의견",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/invest_opinion",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/invest_opinion",
       "method": "invest_opinion",
       "api_path": "/uapi/domestic-stock/v1/quotations/invest-opinion",
       "params": {
@@ -4736,7 +4736,7 @@
     "estimate_perform": {
       "category": "[국내주식] 종목정보",
       "name": "국내주식 종목추정실적",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/estimate_perform",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/estimate_perform",
       "method": "estimate_perform",
       "api_path": "/uapi/domestic-stock/v1/quotations/estimate-perform",
       "params": {
@@ -4801,7 +4801,7 @@
     "investor_trade_by_stock_daily": {
       "category": "[국내주식] 시세분석",
       "name": "종목별 투자자매매동향(일별)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_stock/investor_trade_by_stock_daily",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_stock/investor_trade_by_stock_daily",
       "method": "investor_trade_by_stock_daily",
       "api_path": "/uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily",
       "params": {

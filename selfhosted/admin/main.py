@@ -32,7 +32,7 @@ app = FastAPI(title="KIS Admin Gateway")
 templates = Jinja2Templates(directory="templates")
 
 GITHUB_URL = os.environ.get(
-    "GITHUB_URL", "https://github.com/koreainvestment/open-trading-api"
+    "GITHUB_URL", "https://github.com/workspace/kis-selfhosted"
 )
 
 

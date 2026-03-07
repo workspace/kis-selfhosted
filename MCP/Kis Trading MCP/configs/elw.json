@@ -29,7 +29,7 @@
     "volume_rank": {
       "category": "[국내주식] ELW시세",
       "name": "ELW 거래량순위",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/elw/volume_rank",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/elw/volume_rank",
       "method": "volume_rank",
       "api_path": "/uapi/elw/v1/ranking/volume-rank",
       "params": {

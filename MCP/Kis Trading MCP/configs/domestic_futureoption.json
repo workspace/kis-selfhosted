@@ -29,7 +29,7 @@
     "inquire_asking_price": {
       "category": "[국내선물옵션] 기본시세",
       "name": "선물옵션 시세호가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_asking_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_asking_price",
       "method": "inquire_asking_price",
       "api_path": "/uapi/domestic-futureoption/v1/quotations/inquire-asking-price",
       "params": {
@@ -59,7 +59,7 @@
     "inquire_time_fuopchartprice": {
       "category": "[국내선물옵션] 기본시세",
       "name": "선물옵션 분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_time_fuopchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_time_fuopchartprice",
       "method": "inquire_time_fuopchartprice",
       "api_path": "/uapi/domestic-futureoption/v1/quotations/inquire-time-fuopchartprice",
       "params": {
@@ -117,7 +117,7 @@
     "inquire_price": {
       "category": "[국내선물옵션] 기본시세",
       "name": "선물옵션 시세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_price",
       "method": "inquire_price",
       "api_path": "/uapi/domestic-futureoption/v1/quotations/inquire-price",
       "params": {
@@ -147,7 +147,7 @@
     "inquire_daily_fuopchartprice": {
       "category": "[국내선물옵션] 기본시세",
       "name": "선물옵션기간별시세(일/주/월/년)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_daily_fuopchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_daily_fuopchartprice",
       "method": "inquire_daily_fuopchartprice",
       "api_path": "/uapi/domestic-futureoption/v1/quotations/inquire-daily-fuopchartprice",
       "params": {
@@ -198,7 +198,7 @@
     "exp_price_trend": {
       "category": "[국내선물옵션] 기본시세",
       "name": "선물옵션 일중예상체결추이",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/exp_price_trend",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/exp_price_trend",
       "method": "exp_price_trend",
       "api_path": "/uapi/domestic-futureoption/v1/quotations/exp-price-trend",
       "params": {
@@ -221,7 +221,7 @@
     "display_board_top": {
       "category": "[국내선물옵션] 기본시세",
       "name": "국내선물 기초자산 시세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/display_board_top",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/display_board_top",
       "method": "display_board_top",
       "api_path": "/uapi/domestic-futureoption/v1/quotations/display-board-top",
       "params": {
@@ -272,7 +272,7 @@
     "inquire_balance": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 잔고현황",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_balance",
       "method": "inquire_balance",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-balance",
       "params": {
@@ -346,7 +346,7 @@
     "inquire_ngt_balance": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "(야간)선물옵션 잔고현황",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_ngt_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_ngt_balance",
       "method": "inquire_ngt_balance",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-ngt-balance",
       "params": {
@@ -420,7 +420,7 @@
     "inquire_ccnl": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 주문체결내역조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_ccnl",
       "method": "inquire_ccnl",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-ccnl",
       "params": {
@@ -536,7 +536,7 @@
     "inquire_ngt_ccnl": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "(야간)선물옵션 주문체결 내역조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_ngt_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_ngt_ccnl",
       "method": "inquire_ngt_ccnl",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-ngt-ccnl",
       "params": {
@@ -659,7 +659,7 @@
     "order": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/order",
       "method": "order",
       "api_path": "/uapi/domestic-futureoption/v1/trading/order",
       "params": {
@@ -766,7 +766,7 @@
     "inquire_psbl_order": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 주문가능",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_psbl_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_psbl_order",
       "method": "inquire_psbl_order",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-psbl-order",
       "params": {
@@ -824,7 +824,7 @@
     "inquire_ccnl_bstime": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 기준일체결내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_ccnl_bstime",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_ccnl_bstime",
       "method": "inquire_ccnl_bstime",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-ccnl-bstime",
       "params": {
@@ -898,7 +898,7 @@
     "order_rvsecncl": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 정정취소주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/order_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/order_rvsecncl",
       "method": "order_rvsecncl",
       "api_path": "/uapi/domestic-futureoption/v1/trading/order-rvsecncl",
       "params": {
@@ -1005,7 +1005,7 @@
     "inquire_balance_valuation_pl": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 잔고평가손익내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_balance_valuation_pl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_balance_valuation_pl",
       "method": "inquire_balance_valuation_pl",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-balance-valuation-pl",
       "params": {
@@ -1072,7 +1072,7 @@
     "inquire_deposit": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 총자산현황",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_deposit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_deposit",
       "method": "inquire_deposit",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-deposit",
       "params": {
@@ -1095,7 +1095,7 @@
     "inquire_balance_settlement_pl": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션 잔고정산손익내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_balance_settlement_pl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_balance_settlement_pl",
       "method": "inquire_balance_settlement_pl",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-balance-settlement-pl",
       "params": {
@@ -1155,7 +1155,7 @@
     "inquire_psbl_ngt_order": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "(야간)선물옵션 주문가능 조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_psbl_ngt_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_psbl_ngt_order",
       "method": "inquire_psbl_ngt_order",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-psbl-ngt-order",
       "params": {
@@ -1213,7 +1213,7 @@
     "inquire_daily_amount_fee": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "선물옵션기간약정수수료일별",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/inquire_daily_amount_fee",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/inquire_daily_amount_fee",
       "method": "inquire_daily_amount_fee",
       "api_path": "/uapi/domestic-futureoption/v1/trading/inquire-daily-amount-fee",
       "params": {
@@ -1280,7 +1280,7 @@
     "ngt_margin_detail": {
       "category": "[국내선물옵션] 주문/계좌",
       "name": "(야간)선물옵션 증거금 상세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/domestic_futureoption/ngt_margin_detail",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/domestic_futureoption/ngt_margin_detail",
       "method": "ngt_margin_detail",
       "api_path": "/uapi/domestic-futureoption/v1/trading/ngt-margin-detail",
       "params": {

@@ -28,7 +28,7 @@
     "inquire_time_futurechartprice": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외선물 분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_time_futurechartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_time_futurechartprice",
       "method": "inquire_time_futurechartprice",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/inquire-time-futurechartprice",
       "params": {
@@ -128,7 +128,7 @@
     "inquire_price": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외선물종목현재가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_price",
       "method": "inquire_price",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/inquire-price",
       "params": {
@@ -172,7 +172,7 @@
     "opt_asking_price": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외옵션 호가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/opt_asking_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/opt_asking_price",
       "method": "opt_asking_price",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/opt-asking-price",
       "params": {
@@ -223,7 +223,7 @@
     "daily_ccnl": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외선물 체결추이(일간)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/daily_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/daily_ccnl",
       "method": "daily_ccnl",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/daily-ccnl",
       "params": {
@@ -323,7 +323,7 @@
     "search_opt_detail": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외옵션 상품기본정보",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/search_opt_detail",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/search_opt_detail",
       "method": "search_opt_detail",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/search-opt-detail",
       "params": {
@@ -549,7 +549,7 @@
     "opt_price": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외옵션종목현재가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/opt_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/opt_price",
       "method": "opt_price",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/opt-price",
       "params": {
@@ -565,7 +565,7 @@
     "inquire_asking_price": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외선물 호가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_asking_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_asking_price",
       "method": "inquire_asking_price",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/inquire-asking-price",
       "params": {
@@ -616,7 +616,7 @@
     "search_contract_detail": {
       "category": "[해외선물옵션] 기본시세",
       "name": "해외선물 상품기본정보",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/search_contract_detail",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/search_contract_detail",
       "method": "search_contract_detail",
       "api_path": "/uapi/overseas-futureoption/v1/quotations/search-contract-detail",
       "params": {
@@ -660,7 +660,7 @@
     "inquire_ccld": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 당일주문내역조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_ccld",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_ccld",
       "method": "inquire_ccld",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-ccld",
       "params": {
@@ -746,7 +746,7 @@
     "inquire_unpd": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 미결제내역조회(잔고)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_unpd",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_unpd",
       "method": "inquire_unpd",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-unpd",
       "params": {
@@ -818,7 +818,7 @@
     "inquire_deposit": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 예수금현황",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_deposit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_deposit",
       "method": "inquire_deposit",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-deposit",
       "params": {
@@ -883,7 +883,7 @@
     "inquire_psamount": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 주문가능조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_psamount",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_psamount",
       "method": "inquire_psamount",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-psamount",
       "params": {
@@ -962,7 +962,7 @@
     "inquire_daily_order": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 일별 주문내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_daily_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_daily_order",
       "method": "inquire_daily_order",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-daily-order",
       "params": {
@@ -1069,7 +1069,7 @@
     "inquire_daily_ccld": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 일별 체결내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_daily_ccld",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_daily_ccld",
       "method": "inquire_daily_ccld",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-daily-ccld",
       "params": {
@@ -1190,7 +1190,7 @@
     "inquire_period_ccld": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 기간계좌손익 일별",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_period_ccld",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_period_ccld",
       "method": "inquire_period_ccld",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-period-ccld",
       "params": {
@@ -1297,7 +1297,7 @@
     "order_rvsecncl": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 정정취소주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/order_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/order_rvsecncl",
       "method": "order_rvsecncl",
       "api_path": "/uapi/overseas-futureoption/v1/trading/order-rvsecncl",
       "params": {
@@ -1383,7 +1383,7 @@
     "inquire_period_trans": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 기간계좌거래내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/inquire_period_trans",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/inquire_period_trans",
       "method": "inquire_period_trans",
       "api_path": "/uapi/overseas-futureoption/v1/trading/inquire-period-trans",
       "params": {
@@ -1483,7 +1483,7 @@
     "margin_detail": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 증거금상세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/margin_detail",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/margin_detail",
       "method": "margin_detail",
       "api_path": "/uapi/overseas-futureoption/v1/trading/margin-detail",
       "params": {
@@ -1548,7 +1548,7 @@
     "order": {
       "category": "[해외선물옵션] 주문/계좌",
       "name": "해외선물옵션 주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_futureoption/order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_futureoption/order",
       "method": "order",
       "api_path": "/uapi/overseas-futureoption/v1/trading/order",
       "params": {

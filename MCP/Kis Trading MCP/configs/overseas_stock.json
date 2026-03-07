@@ -28,7 +28,7 @@
     "price": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 현재체결가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/price",
       "method": "price",
       "api_path": "/uapi/overseas-price/v1/quotations/price",
       "params": {
@@ -93,7 +93,7 @@
     "inquire_daily_chartprice": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 종목/지수/환율기간별시세(일/주/월/년)",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_daily_chartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_daily_chartprice",
       "method": "inquire_daily_chartprice",
       "api_path": "/uapi/overseas-price/v1/quotations/inquire-daily-chartprice",
       "params": {
@@ -179,7 +179,7 @@
     "inquire_time_itemchartprice": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_time_itemchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_time_itemchartprice",
       "method": "inquire_time_itemchartprice",
       "api_path": "/uapi/overseas-price/v1/quotations/inquire-time-itemchartprice",
       "params": {
@@ -286,7 +286,7 @@
     "dailyprice": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 기간별시세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/dailyprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/dailyprice",
       "method": "dailyprice",
       "api_path": "/uapi/overseas-price/v1/quotations/dailyprice",
       "params": {
@@ -379,7 +379,7 @@
     "price_detail": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 현재가상세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/price_detail",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/price_detail",
       "method": "price_detail",
       "api_path": "/uapi/overseas-price/v1/quotations/price-detail",
       "params": {
@@ -437,7 +437,7 @@
     "inquire_asking_price": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 현재가 1호가",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_asking_price",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_asking_price",
       "method": "inquire_asking_price",
       "api_path": "/uapi/overseas-price/v1/quotations/inquire-asking-price",
       "params": {
@@ -509,7 +509,7 @@
     "inquire_search": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식조건검색",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_search",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_search",
       "method": "inquire_search",
       "api_path": "/uapi/overseas-price/v1/quotations/inquire-search",
       "params": {
@@ -740,7 +740,7 @@
     "quot_inquire_ccnl": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 체결추이",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/quot_inquire_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/quot_inquire_ccnl",
       "method": "quot_inquire_ccnl",
       "api_path": "/uapi/overseas-price/v1/quotations/inquire-ccnl",
       "params": {
@@ -812,7 +812,7 @@
     "search_info": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 상품기본정보",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/search_info",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/search_info",
       "method": "search_info",
       "api_path": "/uapi/overseas-price/v1/quotations/search-info",
       "params": {
@@ -863,7 +863,7 @@
     "industry_theme": {
       "category": "[해외주식] 기본시세",
       "name": "해외주식 업종별시세",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/industry_theme",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/industry_theme",
       "method": "industry_theme",
       "api_path": "/uapi/overseas-price/v1/quotations/industry-theme",
       "params": {
@@ -942,7 +942,7 @@
     "inquire_time_indexchartprice": {
       "category": "[해외주식] 기본시세",
       "name": "해외지수분봉조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_time_indexchartprice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_time_indexchartprice",
       "method": "inquire_time_indexchartprice",
       "api_path": "/uapi/overseas-price/v1/quotations/inquire-time-indexchartprice",
       "params": {
@@ -1014,7 +1014,7 @@
     "updown_rate": {
       "category": "[해외주식] 시세분석",
       "name": "해외주식 상승율/하락율",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/updown_rate",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/updown_rate",
       "method": "updown_rate",
       "api_path": "/uapi/overseas-stock/v1/ranking/updown-rate",
       "params": {
@@ -1100,7 +1100,7 @@
     "rights_by_ice": {
       "category": "[해외주식] 시세분석",
       "name": "해외주식 권리종합",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/rights_by_ice",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/rights_by_ice",
       "method": "rights_by_ice",
       "api_path": "/uapi/overseas-price/v1/quotations/rights-by-ice",
       "params": {
@@ -1137,7 +1137,7 @@
     "price_fluct": {
       "category": "[해외주식] 시세분석",
       "name": "해외주식 가격급등락",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/price_fluct",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/price_fluct",
       "method": "price_fluct",
       "api_path": "/uapi/overseas-stock/v1/ranking/price-fluct",
       "params": {
@@ -1223,7 +1223,7 @@
     "trade_vol": {
       "category": "[해외주식] 시세분석",
       "name": "해외주식 거래량순위",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/trade_vol",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/trade_vol",
       "method": "trade_vol",
       "api_path": "/uapi/overseas-stock/v1/ranking/trade-vol",
       "params": {
@@ -1316,7 +1316,7 @@
     "period_rights": {
       "category": "[해외주식] 시세분석",
       "name": "해외주식 기간별권리조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/period_rights",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/period_rights",
       "method": "period_rights",
       "api_path": "/uapi/overseas-price/v1/quotations/period-rights",
       "params": {
@@ -1391,7 +1391,7 @@
     "inquire_present_balance": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 체결기준현재잔고",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_present_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_present_balance",
       "method": "inquire_present_balance",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-present-balance",
       "params": {
@@ -1491,7 +1491,7 @@
     "inquire_balance": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 잔고",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_balance",
       "method": "inquire_balance",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-balance",
       "params": {
@@ -1564,7 +1564,7 @@
     "inquire_nccs": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 미체결내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_nccs",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_nccs",
       "method": "inquire_nccs",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-nccs",
       "params": {
@@ -1631,7 +1631,7 @@
     "inquire_ccnl": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 주문체결내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_ccnl",
       "method": "inquire_ccnl",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-ccnl",
       "params": {
@@ -1754,7 +1754,7 @@
     "inquire_psamount": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 매수가능금액조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_psamount",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_psamount",
       "method": "inquire_psamount",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-psamount",
       "params": {
@@ -1833,7 +1833,7 @@
     "foreign_margin": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외증거금 통화별조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/foreign_margin",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/foreign_margin",
       "method": "foreign_margin",
       "api_path": "/uapi/overseas-stock/v1/trading/foreign-margin",
       "params": {
@@ -1884,7 +1884,7 @@
     "order": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/order",
       "method": "order",
       "api_path": "/uapi/overseas-stock/v1/trading/order",
       "params": {
@@ -1976,7 +1976,7 @@
     "order_rvsecncl": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 정정취소주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/order_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/order_rvsecncl",
       "method": "order_rvsecncl",
       "api_path": "/uapi/overseas-stock/v1/trading/order-rvsecncl",
       "params": {
@@ -2062,7 +2062,7 @@
     "inquire_period_trans": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 일별거래내역",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_period_trans",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_period_trans",
       "method": "inquire_period_trans",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-period-trans",
       "params": {
@@ -2157,7 +2157,7 @@
     "inquire_paymt_stdr_balance": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 결제기준잔고",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_paymt_stdr_balance",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_paymt_stdr_balance",
       "method": "inquire_paymt_stdr_balance",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-paymt-stdr-balance",
       "params": {
@@ -2243,7 +2243,7 @@
     "daytime_order": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 미국주간주문",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/daytime_order",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/daytime_order",
       "method": "daytime_order",
       "api_path": "/uapi/overseas-stock/v1/trading/daytime-order",
       "params": {
@@ -2329,7 +2329,7 @@
     "daytime_order_rvsecncl": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 미국주간정정취소",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/daytime_order_rvsecncl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/daytime_order_rvsecncl",
       "method": "daytime_order_rvsecncl",
       "api_path": "/uapi/overseas-stock/v1/trading/daytime-order-rvsecncl",
       "params": {
@@ -2415,7 +2415,7 @@
     "inquire_period_profit": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 기간손익",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_period_profit",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_period_profit",
       "method": "inquire_period_profit",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-period-profit",
       "params": {
@@ -2517,7 +2517,7 @@
     "order_resv": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 예약주문접수",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/order_resv",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/order_resv",
       "method": "order_resv",
       "api_path": "/uapi/overseas-stock/v1/trading/order-resv",
       "params": {
@@ -2638,7 +2638,7 @@
     "order_resv_list": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 예약주문조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/order_resv_list",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/order_resv_list",
       "method": "order_resv_list",
       "api_path": "/uapi/overseas-stock/v1/trading/order-resv-list",
       "params": {
@@ -2727,7 +2727,7 @@
     "inquire_algo_ccnl": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 지정가체결내역조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/inquire_algo_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/inquire_algo_ccnl",
       "method": "inquire_algo_ccnl",
       "api_path": "/uapi/overseas-stock/v1/trading/inquire-algo-ccnl",
       "params": {
@@ -2808,7 +2808,7 @@
     "order_resv_ccnl": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 예약주문접수취소",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/order_resv_ccnl",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/order_resv_ccnl",
       "method": "order_resv_ccnl",
       "api_path": "/uapi/overseas-stock/v1/trading/order-resv-ccnl",
       "params": {
@@ -2859,7 +2859,7 @@
     "algo_ordno": {
       "category": "[해외주식] 주문/계좌",
       "name": "해외주식 지정가주문번호조회",
-      "github_url": "https://github.com/koreainvestment/open-trading-api/tree/main/examples_llm/overseas_stock/algo_ordno",
+      "github_url": "https://github.com/workspace/kis-selfhosted/tree/main/examples_llm/overseas_stock/algo_ordno",
       "method": "algo_ordno",
       "api_path": "/uapi/overseas-stock/v1/trading/algo-ordno",
       "params": {
