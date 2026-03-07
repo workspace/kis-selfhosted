@@ -100,7 +100,7 @@ async def proxy_request(request: Request) -> Response:
     if request.url.query:
         upstream_url += f"?{request.url.query}"
 
-    logging.info(f"[proxy] {request.method} {path} -> {upstream_url}")
+    print(f"[proxy] {request.method} {path} -> {upstream_url}", flush=True)
 
     # Forward headers (strip hop-by-hop)
     headers = dict(request.headers)
@@ -118,7 +118,7 @@ async def proxy_request(request: Request) -> Response:
         content=body,
     )
 
-    logging.info(f"[proxy] {upstream_url} -> {resp.status_code} Location={resp.headers.get('location', '-')}")
+    print(f"[proxy] {upstream_url} -> {resp.status_code} Location={resp.headers.get('location', '-')}", flush=True)
 
     return Response(
         content=resp.content,
