@@ -11,14 +11,19 @@ def setup_kis_config(force_update=False):
         force_update (bool): True면 기존 파일이 있어도 강제로 덮어쓰기
     """
 
-    # kis_auth.py와 동일한 경로 생성 방식 사용
-    kis_config_dir = os.path.join(os.path.expanduser("~"), "KIS", "config")
+    # KIS_CONFIG_DIR 환경변수 우선, 없으면 ~/KIS/config 사용
+    kis_config_dir = os.environ.get("KIS_CONFIG_DIR") or os.path.join(os.path.expanduser("~"), "KIS", "config")
 
     # KIS 설정 디렉토리 생성
     os.makedirs(kis_config_dir, exist_ok=True)
 
     # 설정 파일 경로
     kis_config_path = os.path.join(kis_config_dir, "kis_devlp.yaml")
+
+    # KIS_CONFIG_DIR로 외부에서 제공된 설정 파일이 있으면 그대로 사용
+    if os.environ.get("KIS_CONFIG_DIR") and os.path.exists(kis_config_path):
+        logging.info(f"✅ 외부 제공 KIS 설정 파일 사용: {kis_config_path}")
+        return True
 
     # 기존 파일 존재 확인
     if os.path.exists(kis_config_path) and not force_update:
