@@ -23,6 +23,7 @@ from oauth import (
     revoke_token,
     get_metadata,
 )
+import logging
 from gateway import proxy_request, match_route
 
 app = FastAPI(title="KIS Admin Gateway")
@@ -248,12 +249,31 @@ async def logout(request: Request):
     return response
 
 
-# ─── Reverse proxy middleware ─────────────────────────────────────────────────
+# ─── Auth verify endpoint (for nginx auth_request) ──────────────────────────
+
+@app.get("/auth/verify")
+async def auth_verify(request: Request):
+    """Return 200 if authenticated, 401 if not. Used by nginx auth_request."""
+    if _is_authenticated(request):
+        return Response(status_code=200)
+    # Check Bearer token
+    auth_header = request.headers.get("authorization", "")
+    if auth_header.startswith("Bearer "):
+        from oauth import verify_bearer_token
+        if verify_bearer_token(auth_header[7:]):
+            return Response(status_code=200)
+    return Response(status_code=401)
+
+
+# ─── Reverse proxy middleware (fallback for MCP paths) ────────────────────────
 
 @app.middleware("http")
 async def proxy_middleware(request: Request, call_next):
     """Intercept proxy-able paths before FastAPI router processes them."""
-    if match_route(request.url.path) is not None:
+    path = request.url.path
+    route = match_route(path)
+    logging.info(f"[middleware] {request.method} {path} -> route={route}")
+    if route is not None:
         return await proxy_request(request)
     return await call_next(request)
 
