@@ -17,8 +17,10 @@ ROUTE_MAP = [
     ("/strategy/", "http://strategy-frontend:3000", ""),
     ("/backtest/api/", "http://backtest-backend:8002", "/backtest"),
     ("/backtest/", "http://backtest-frontend:3001", ""),
-    ("/mcp/backtest", "http://backtest-mcp:3846", "/mcp/backtest"),
-    ("/mcp/trading", "http://trading-mcp:3100", "/mcp/trading"),
+    # MCP: /mcp/backtest → backtest-mcp:3846/mcp, /mcp/trading → trading-mcp:3100/mcp
+    # rewrite_prefix replaces the matched gateway prefix with the upstream prefix
+    ("/mcp/backtest", "http://backtest-mcp:3846", "/mcp/backtest", "/mcp"),
+    ("/mcp/trading", "http://trading-mcp:3100", "/mcp/trading", "/mcp"),
 ]
 
 # Paths that require Bearer token (MCP)
@@ -50,11 +52,13 @@ def _check_auth(request: Request) -> str | None:
     return None
 
 
-def match_route(path: str) -> tuple[str, str] | None:
-    """Find matching route. Returns (upstream_base, prefix_to_strip) or None."""
-    for prefix, upstream, strip in ROUTE_MAP:
+def match_route(path: str) -> tuple[str, str, str] | None:
+    """Find matching route. Returns (upstream_base, strip_prefix, rewrite_prefix) or None."""
+    for entry in ROUTE_MAP:
+        prefix, upstream, strip = entry[0], entry[1], entry[2]
+        rewrite = entry[3] if len(entry) > 3 else ""
         if path.startswith(prefix) or path == prefix.rstrip("/"):
-            return upstream, strip
+            return upstream, strip, rewrite
     return None
 
 
@@ -83,18 +87,17 @@ async def proxy_request(request: Request) -> Response:
     if route is None:
         return Response(content="Not Found", status_code=404)
 
-    upstream_base, strip_prefix = route
+    upstream_base, strip_prefix, rewrite_prefix = route
 
-    # Build upstream URL
+    # Build upstream path: strip gateway prefix, prepend upstream prefix
     upstream_path = path
     if strip_prefix and path.startswith(strip_prefix):
-        upstream_path = path[len(strip_prefix):] or "/"
-
-    # For MCP routes, map to /mcp
-    if any(path.startswith(mp) for mp in MCP_PATHS):
-        upstream_path = "/mcp" + upstream_path.split("/mcp/backtest", 1)[-1].split("/mcp/trading", 1)[-1]
-        if upstream_path == "/mcp":
-            upstream_path = "/mcp"
+        upstream_path = path[len(strip_prefix):]
+    upstream_path = rewrite_prefix + upstream_path
+    # Normalise: ensure path starts with / and remove trailing slash
+    upstream_path = "/" + upstream_path.strip("/")
+    if upstream_path != "/" and upstream_path.endswith("/"):
+        upstream_path = upstream_path.rstrip("/")
 
 
     upstream_url = f"{upstream_base}{upstream_path}"
