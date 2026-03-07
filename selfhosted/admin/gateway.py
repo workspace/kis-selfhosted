@@ -92,9 +92,12 @@ async def proxy_request(request: Request) -> Response:
     # Build upstream path: replace gateway prefix with upstream prefix
     upstream_path = path
     if strip_prefix and path.startswith(strip_prefix):
-        upstream_path = path[len(strip_prefix):]
-        # rewrite_prefix replaces strip_prefix (not prepend to remainder)
-        upstream_path = rewrite_prefix + upstream_path
+        remainder = path[len(strip_prefix):]
+        # Only prepend rewrite_prefix if remainder doesn't already start with it
+        if rewrite_prefix and not remainder.startswith(rewrite_prefix):
+            upstream_path = rewrite_prefix + remainder
+        else:
+            upstream_path = remainder or rewrite_prefix
     elif rewrite_prefix:
         upstream_path = rewrite_prefix + upstream_path
     # Normalise: ensure path starts with /
