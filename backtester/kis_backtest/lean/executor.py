@@ -280,16 +280,35 @@ class LeanExecutor:
             logger.error(f"[Lean] {error_msg}")
             raise RuntimeError(error_msg)
     
+    _pull_process: subprocess.Popen = None
+
+    @classmethod
+    def pull_image_background(cls) -> None:
+        """Lean Docker 이미지 백그라운드 다운로드 시작"""
+        if cls._pull_process and cls._pull_process.poll() is None:
+            return  # 이미 다운로드 중
+        logger.info(f"[Lean] Docker 이미지 백그라운드 다운로드 시작: {LEAN_IMAGE}")
+        cls._pull_process = subprocess.Popen(
+            ["docker", "pull", LEAN_IMAGE],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+
+    @classmethod
+    def is_pulling(cls) -> bool:
+        """이미지 다운로드 진행 중 여부"""
+        return cls._pull_process is not None and cls._pull_process.poll() is None
+
     @classmethod
     def pull_image(cls) -> bool:
-        """Lean Docker 이미지 다운로드"""
+        """Lean Docker 이미지 다운로드 (동기)"""
         try:
             logger.info(f"[Lean] Docker 이미지 다운로드 중: {LEAN_IMAGE}")
             result = subprocess.run(
                 ["docker", "pull", LEAN_IMAGE],
                 capture_output=True,
                 text=True,
-                timeout=600,
+                timeout=1800,
             )
             return result.returncode == 0
         except Exception as e:

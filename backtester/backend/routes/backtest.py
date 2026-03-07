@@ -576,12 +576,16 @@ async def run_backtest(request: BacktestRequest) -> BacktestResponse:
         )
 
     if not LeanExecutor.check_image():
-        logger.info("Lean 이미지가 없습니다. 자동 다운로드 중...")
-        if not LeanExecutor.pull_image():
+        if LeanExecutor.is_pulling():
             raise HTTPException(
                 status_code=503,
-                detail="Lean 이미지 다운로드에 실패했습니다. 네트워크 연결을 확인해주세요."
+                detail="Lean 엔진 이미지를 다운로드 중입니다. 잠시 후 다시 시도해주세요."
             )
+        LeanExecutor.pull_image_background()
+        raise HTTPException(
+            status_code=503,
+            detail="Lean 엔진 이미지 다운로드를 시작했습니다. 수 분 후 다시 시도해주세요."
+        )
 
     # 프로젝트 생성 및 백테스트 실행
     try:
@@ -722,12 +726,16 @@ async def run_custom_backtest(request: CustomBacktestRequest) -> BacktestRespons
         )
 
     if not LeanExecutor.check_image():
-        logger.info("Lean 이미지가 없습니다. 자동 다운로드 중...")
-        if not LeanExecutor.pull_image():
+        if LeanExecutor.is_pulling():
             raise HTTPException(
                 status_code=503,
-                detail="Lean 이미지 다운로드에 실패했습니다. 네트워크 연결을 확인해주세요."
+                detail="Lean 엔진 이미지를 다운로드 중입니다. 잠시 후 다시 시도해주세요."
             )
+        LeanExecutor.pull_image_background()
+        raise HTTPException(
+            status_code=503,
+            detail="Lean 엔진 이미지 다운로드를 시작했습니다. 수 분 후 다시 시도해주세요."
+        )
 
     # 프로젝트 생성 및 백테스트 실행
     try:
