@@ -287,17 +287,44 @@ class LeanExecutor:
         """Lean Docker 이미지 백그라운드 다운로드 시작"""
         if cls._pull_process and cls._pull_process.poll() is None:
             return  # 이미 다운로드 중
+
+        # 이전 pull 실패 여부 로깅
+        if cls._pull_process is not None:
+            rc = cls._pull_process.returncode
+            if rc != 0:
+                logger.warning(f"[Lean] 이전 이미지 다운로드 실패 (exit code: {rc})")
+
         logger.info(f"[Lean] Docker 이미지 백그라운드 다운로드 시작: {LEAN_IMAGE}")
         cls._pull_process = subprocess.Popen(
             ["docker", "pull", LEAN_IMAGE],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
         )
 
     @classmethod
     def is_pulling(cls) -> bool:
         """이미지 다운로드 진행 중 여부"""
         return cls._pull_process is not None and cls._pull_process.poll() is None
+
+    @classmethod
+    def wait_for_pull(cls, timeout: int = 600) -> bool:
+        """백그라운드 pull 완료 대기. 성공 여부 반환."""
+        if cls._pull_process is None:
+            return False
+        if cls._pull_process.poll() is not None:
+            return cls._pull_process.returncode == 0
+        try:
+            _, stderr = cls._pull_process.communicate(timeout=timeout)
+            rc = cls._pull_process.returncode
+            if rc != 0:
+                logger.error(f"[Lean] 이미지 다운로드 실패 (exit code: {rc}): {stderr.decode(errors='replace')[-500:]}")
+            else:
+                logger.info(f"[Lean] 이미지 다운로드 완료: {LEAN_IMAGE}")
+            return rc == 0
+        except subprocess.TimeoutExpired:
+            logger.error(f"[Lean] 이미지 다운로드 타임아웃 ({timeout}초)")
+            cls._pull_process.kill()
+            return False
 
     @classmethod
     def pull_image(cls) -> bool:

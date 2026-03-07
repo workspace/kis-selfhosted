@@ -334,7 +334,17 @@ async def _run_backtest_task(
             if not LeanExecutor.check_docker():
                 raise RuntimeError("Docker가 실행되지 않습니다. Docker Desktop을 시작해주세요.")
             if not LeanExecutor.check_image():
-                raise RuntimeError("Lean 이미지가 없습니다. 'docker pull quantconnect/lean:latest' 실행 후 재시도해주세요.")
+                if LeanExecutor.is_pulling():
+                    logger.info(f"[MCP job={job_id}] 이미지 다운로드 대기 중...")
+                    ok = await asyncio.to_thread(LeanExecutor.wait_for_pull)
+                    if not ok or not LeanExecutor.check_image():
+                        raise RuntimeError("Lean 이미지 다운로드 실패. 'docker pull quantconnect/lean:latest'를 수동 실행해주세요.")
+                else:
+                    LeanExecutor.pull_image_background()
+                    logger.info(f"[MCP job={job_id}] 이미지 다운로드 시작, 완료 대기 중...")
+                    ok = await asyncio.to_thread(LeanExecutor.wait_for_pull)
+                    if not ok or not LeanExecutor.check_image():
+                        raise RuntimeError("Lean 이미지 다운로드 실패. 'docker pull quantconnect/lean:latest'를 수동 실행해주세요.")
 
             # 프로젝트 생성 및 실행
             project = LeanProjectManager.create_project(
