@@ -26,7 +26,7 @@ services:
   admin-gateway:
     build:
       context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.admin
+      dockerfile: selfhosted/dockerfiles/Dockerfile.admin
     ports:
       - "${GATEWAY_PORT:-8080}:8080"
     environment:
@@ -58,7 +58,7 @@ services:
   strategy-backend:
     build:
       context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.strategy-backend
+      dockerfile: selfhosted/dockerfiles/Dockerfile.strategy-backend
     environment:
       - KIS_CONFIG_DIR=/app/kis-config
       - CORS_ORIGINS=*
@@ -74,7 +74,7 @@ services:
   strategy-frontend:
     build:
       context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.strategy-frontend
+      dockerfile: selfhosted/dockerfiles/Dockerfile.strategy-frontend
     networks:
       - kis-net
     restart: unless-stopped
@@ -82,7 +82,7 @@ services:
   backtest-backend:
     build:
       context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.backtest-backend
+      dockerfile: selfhosted/dockerfiles/Dockerfile.backtest-backend
     environment:
       - KIS_CONFIG_DIR=/app/kis-config
       - CORS_ORIGINS=*
@@ -99,7 +99,7 @@ services:
   backtest-frontend:
     build:
       context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.backtest-frontend
+      dockerfile: selfhosted/dockerfiles/Dockerfile.backtest-frontend
     networks:
       - kis-net
     restart: unless-stopped
@@ -107,7 +107,7 @@ services:
   backtest-mcp:
     build:
       context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.backtest-mcp
+      dockerfile: selfhosted/dockerfiles/Dockerfile.backtest-mcp
     environment:
       - KIS_CONFIG_DIR=/app/kis-config
       - MCP_HOST=0.0.0.0

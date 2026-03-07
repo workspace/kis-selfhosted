@@ -42,7 +42,7 @@
 ### 1. 환경변수 설정
 
 ```bash
-cd deploy
+cd selfhosted
 cp .env.example .env
 ```
 
@@ -64,7 +64,7 @@ KIS API 키, 계좌번호 등도 `.env`에 입력합니다.
 ### 2a. 배포 (소스 빌드)
 
 ```bash
-cd deploy
+cd selfhosted
 docker compose up -d
 ```
 
@@ -74,7 +74,7 @@ docker compose up -d
 # GHCR 로그인 (private 이미지)
 echo $CR_PAT | docker login ghcr.io -u <github-username> --password-stdin
 
-cd deploy
+cd selfhosted
 docker compose -f docker-compose.prod.yml up -d
 ```
 

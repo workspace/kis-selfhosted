@@ -4,10 +4,10 @@ WORKDIR /app
 
 RUN pip install uv
 
-COPY deploy/admin/pyproject.toml ./
+COPY selfhosted/admin/pyproject.toml ./
 RUN uv sync --no-install-project
 
-COPY deploy/admin/ .
+COPY selfhosted/admin/ .
 
 ENV KIS_CONFIG_DIR=/app/kis-config
 

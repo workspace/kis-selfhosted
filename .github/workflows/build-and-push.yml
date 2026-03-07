@@ -20,22 +20,22 @@ jobs:
       matrix:
         include:
           - service: admin
-            dockerfile: deploy/dockerfiles/Dockerfile.admin
+            dockerfile: selfhosted/dockerfiles/Dockerfile.admin
             context: .
           - service: strategy-backend
-            dockerfile: deploy/dockerfiles/Dockerfile.strategy-backend
+            dockerfile: selfhosted/dockerfiles/Dockerfile.strategy-backend
             context: .
           - service: strategy-frontend
-            dockerfile: deploy/dockerfiles/Dockerfile.strategy-frontend
+            dockerfile: selfhosted/dockerfiles/Dockerfile.strategy-frontend
             context: .
           - service: backtest-backend
-            dockerfile: deploy/dockerfiles/Dockerfile.backtest-backend
+            dockerfile: selfhosted/dockerfiles/Dockerfile.backtest-backend
             context: .
           - service: backtest-frontend
-            dockerfile: deploy/dockerfiles/Dockerfile.backtest-frontend
+            dockerfile: selfhosted/dockerfiles/Dockerfile.backtest-frontend
             context: .
           - service: backtest-mcp
-            dockerfile: deploy/dockerfiles/Dockerfile.backtest-mcp
+            dockerfile: selfhosted/dockerfiles/Dockerfile.backtest-mcp
             context: .
           - service: trading-mcp
             dockerfile: "MCP/Kis Trading MCP/Dockerfile"
