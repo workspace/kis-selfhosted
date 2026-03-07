@@ -30,8 +30,17 @@ class AuthCode:
     created_at: float = field(default_factory=time.time)
 
 
+@dataclass
+class RegisteredClient:
+    client_id: str
+    client_name: str
+    redirect_uris: list[str]
+    created_at: float = field(default_factory=time.time)
+
+
 _auth_codes: dict[str, AuthCode] = {}
 _revoked_tokens: set[str] = set()
+_registered_clients: dict[str, RegisteredClient] = {}
 
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -133,12 +142,35 @@ def revoke_token(token: str) -> None:
     _revoked_tokens.add(token)
 
 
+def register_client(client_name: str, redirect_uris: list[str]) -> dict:
+    """RFC 7591 Dynamic Client Registration."""
+    client_id = f"mcp-{secrets.token_urlsafe(16)}"
+    _registered_clients[client_id] = RegisteredClient(
+        client_id=client_id,
+        client_name=client_name,
+        redirect_uris=redirect_uris,
+    )
+    return {
+        "client_id": client_id,
+        "client_name": client_name,
+        "redirect_uris": redirect_uris,
+        "token_endpoint_auth_method": "none",
+    }
+
+
+def is_registered_client(client_id: str) -> bool:
+    """Check if a client_id is dynamically registered or the static one."""
+    from auth import CLIENT_ID
+    return client_id in _registered_clients or client_id == CLIENT_ID
+
+
 def get_metadata(issuer: str) -> dict:
     """RFC 8414 Authorization Server Metadata."""
     return {
         "issuer": issuer,
         "authorization_endpoint": f"{issuer}/oauth/authorize",
         "token_endpoint": f"{issuer}/oauth/token",
+        "registration_endpoint": f"{issuer}/oauth/register",
         "revocation_endpoint": f"{issuer}/oauth/revoke",
         "response_types_supported": ["code"],
         "grant_types_supported": ["authorization_code", "client_credentials"],

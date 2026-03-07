@@ -22,6 +22,8 @@ from oauth import (
     client_credentials_grant,
     revoke_token,
     get_metadata,
+    register_client,
+    is_registered_client,
 )
 import logging
 from gateway import proxy_request, match_route
@@ -83,6 +85,16 @@ async def oauth_metadata(request: Request):
     return JSONResponse(get_metadata(_get_issuer(request)))
 
 
+@app.post("/oauth/register")
+async def oauth_register(request: Request):
+    """RFC 7591 Dynamic Client Registration."""
+    body = await request.json()
+    client_name = body.get("client_name", "unknown")
+    redirect_uris = body.get("redirect_uris", [])
+    result = register_client(client_name, redirect_uris)
+    return JSONResponse(result, status_code=201)
+
+
 @app.get("/oauth/authorize", response_class=HTMLResponse)
 async def oauth_authorize_get(
     request: Request,
@@ -97,10 +109,13 @@ async def oauth_authorize_get(
     if response_type != "code" or not code_challenge or code_challenge_method != "S256":
         return JSONResponse({"error": "invalid_request"}, status_code=400)
 
+    if not is_registered_client(client_id):
+        return JSONResponse({"error": "invalid_client"}, status_code=400)
+
     return templates.TemplateResponse("login.html", {
         "request": request,
         "mode": "oauth",
-        "client_id": client_id,
+        "oauth_client_id": client_id,
         "redirect_uri": redirect_uri,
         "code_challenge": code_challenge,
         "code_challenge_method": code_challenge_method,
@@ -112,8 +127,9 @@ async def oauth_authorize_get(
 @app.post("/oauth/authorize")
 async def oauth_authorize_post(
     request: Request,
-    client_id: str = Form(...),
-    client_secret: str = Form(...),
+    oauth_client_id: str = Form(...),
+    login_id: str = Form(...),
+    login_secret: str = Form(...),
     redirect_uri: str = Form(""),
     code_challenge: str = Form(""),
     code_challenge_method: str = Form(""),
@@ -124,18 +140,18 @@ async def oauth_authorize_post(
     if rate_limiter.is_blocked(ip):
         return templates.TemplateResponse("login.html", {
             "request": request, "mode": "oauth",
-            "client_id": client_id, "redirect_uri": redirect_uri,
+            "oauth_client_id": oauth_client_id, "redirect_uri": redirect_uri,
             "code_challenge": code_challenge,
             "code_challenge_method": code_challenge_method,
             "state": state,
             "error": "Too many attempts. Try again later.",
         }, status_code=429)
 
-    if not verify_client(client_id, client_secret):
+    if not verify_client(login_id, login_secret):
         rate_limiter.record_failure(ip)
         return templates.TemplateResponse("login.html", {
             "request": request, "mode": "oauth",
-            "client_id": client_id, "redirect_uri": redirect_uri,
+            "oauth_client_id": oauth_client_id, "redirect_uri": redirect_uri,
             "code_challenge": code_challenge,
             "code_challenge_method": code_challenge_method,
             "state": state,
@@ -145,7 +161,7 @@ async def oauth_authorize_post(
     rate_limiter.reset(ip)
 
     code = generate_auth_code(
-        client_id=client_id,
+        client_id=oauth_client_id,
         redirect_uri=redirect_uri,
         code_challenge=code_challenge,
         code_challenge_method=code_challenge_method,

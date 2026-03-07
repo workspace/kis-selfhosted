@@ -32,14 +32,15 @@
 
     {% if mode == "oauth" %}
     <form method="post" action="/oauth/authorize">
+      <input type="hidden" name="oauth_client_id" value="{{ oauth_client_id }}">
       <input type="hidden" name="redirect_uri" value="{{ redirect_uri }}">
       <input type="hidden" name="code_challenge" value="{{ code_challenge }}">
       <input type="hidden" name="code_challenge_method" value="{{ code_challenge_method }}">
       <input type="hidden" name="state" value="{{ state }}">
-      <label for="client_id">Client ID</label>
-      <input type="text" id="client_id" name="client_id" value="{{ client_id }}" required autofocus>
-      <label for="client_secret">Client Secret</label>
-      <input type="password" id="client_secret" name="client_secret" required>
+      <label for="login_id">Client ID</label>
+      <input type="text" id="login_id" name="login_id" required autofocus>
+      <label for="login_secret">Client Secret</label>
+      <input type="password" id="login_secret" name="login_secret" required>
       <button type="submit">Authorize</button>
     </form>
     {% else %}
