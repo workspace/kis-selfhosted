@@ -217,7 +217,7 @@ class LeanExecutor:
                 LEAN_IMAGE,
                 "-c",
                 f"cp /Workspace/{rel_config} /Lean/Launcher/bin/Debug/config.json && "
-                f"mono /Lean/Launcher/bin/Debug/QuantConnect.Lean.Launcher.exe",
+                f"dotnet /Lean/Launcher/bin/Debug/QuantConnect.Lean.Launcher.dll",
             ]
         else:
             # 로컬 모드: 바인드 마운트 사용
