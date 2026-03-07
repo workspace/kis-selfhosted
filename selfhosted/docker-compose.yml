@@ -86,9 +86,11 @@ services:
     environment:
       - KIS_CONFIG_DIR=/app/kis-config
       - CORS_ORIGINS=*
+      - LEAN_DOCKER_VOLUME_NAME=${COMPOSE_PROJECT_NAME:-selfhosted}_lean-workspace
     volumes:
       - kis-config:/app/kis-config
       - lean-workspace:/app/.lean-workspace
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       kis-config-init:
         condition: service_completed_successfully

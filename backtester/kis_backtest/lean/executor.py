@@ -5,6 +5,7 @@ Docker 컨테이너로 Lean 백테스트 직접 실행. (Lean CLI 불필요)
 
 import json
 import logging
+import os
 import subprocess
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -17,6 +18,11 @@ logger = logging.getLogger(__name__)
 
 # Lean Docker 이미지
 LEAN_IMAGE = "quantconnect/lean:latest"
+
+# DooD (Docker-out-of-Docker) 모드: 컨테이너 안에서 sibling 컨테이너를 스폰할 때 사용
+# 설정되면 바인드 마운트 대신 네임드 볼륨을 사용하여 Lean 컨테이너에 데이터를 전달
+LEAN_DOCKER_VOLUME_NAME = os.environ.get("LEAN_DOCKER_VOLUME_NAME")
+LEAN_WORKSPACE_MOUNT = Path("/app/.lean-workspace")
 
 
 @dataclass
@@ -165,9 +171,6 @@ class LeanExecutor:
         lean_config = {
             "algorithm-type-name": "Algorithm",
             "algorithm-language": "Python",
-            "algorithm-location": "/Algorithm/main.py",
-            "data-folder": "/Data",
-            "results-destination-folder": "/Results",
             "debugging": False,
             "debugging-method": "LocalCmdLine",
             "log-handler": "ConsoleLogHandler",
@@ -192,19 +195,45 @@ class LeanExecutor:
             },
             "environment": "backtesting"
         }
-        
+
         config_path = project_path / "lean-config.json"
-        config_path.write_text(json.dumps(lean_config, indent=2))
-        
+
         # Docker 명령어 구성
-        cmd = [
-            "docker", "run", "--rm",
-            "-v", f"{project_path}:/Algorithm:ro",
-            "-v", f"{data_path}:/Data:ro",
-            "-v", f"{results_path}:/Results",
-            "-v", f"{config_path}:/Lean/Launcher/bin/Debug/config.json:ro",
-            LEAN_IMAGE,
-        ]
+        if LEAN_DOCKER_VOLUME_NAME:
+            # DooD 모드: 네임드 볼륨을 통해 sibling 컨테이너와 데이터 공유
+            rel_project = str(project_path.relative_to(LEAN_WORKSPACE_MOUNT))
+            rel_results = str(results_path.relative_to(LEAN_WORKSPACE_MOUNT))
+            rel_config = str(config_path.relative_to(LEAN_WORKSPACE_MOUNT))
+
+            lean_config["algorithm-location"] = f"/Workspace/{rel_project}/main.py"
+            lean_config["data-folder"] = "/Workspace/data"
+            lean_config["results-destination-folder"] = f"/Workspace/{rel_results}"
+            config_path.write_text(json.dumps(lean_config, indent=2))
+
+            cmd = [
+                "docker", "run", "--rm",
+                "-v", f"{LEAN_DOCKER_VOLUME_NAME}:/Workspace",
+                "--entrypoint", "/bin/bash",
+                LEAN_IMAGE,
+                "-c",
+                f"cp /Workspace/{rel_config} /Lean/Launcher/bin/Debug/config.json && "
+                f"mono /Lean/Launcher/bin/Debug/QuantConnect.Lean.Launcher.exe",
+            ]
+        else:
+            # 로컬 모드: 바인드 마운트 사용
+            lean_config["algorithm-location"] = "/Algorithm/main.py"
+            lean_config["data-folder"] = "/Data"
+            lean_config["results-destination-folder"] = "/Results"
+            config_path.write_text(json.dumps(lean_config, indent=2))
+
+            cmd = [
+                "docker", "run", "--rm",
+                "-v", f"{project_path}:/Algorithm:ro",
+                "-v", f"{data_path}:/Data:ro",
+                "-v", f"{results_path}:/Results",
+                "-v", f"{config_path}:/Lean/Launcher/bin/Debug/config.json:ro",
+                LEAN_IMAGE,
+            ]
         
         logger.info(f"[Lean] Docker 실행: {project.run_id}")
         logger.debug(f"[Lean] 명령어: {' '.join(cmd)}")
