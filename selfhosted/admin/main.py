@@ -70,11 +70,18 @@ async def index(request: Request):
 
 @app.get("/.well-known/oauth-protected-resource/{path:path}")
 @app.get("/.well-known/oauth-protected-resource")
-async def protected_resource_metadata(request: Request):
+async def protected_resource_metadata(request: Request, path: str = ""):
     """RFC 9728 Protected Resource Metadata."""
     issuer = _get_issuer(request)
+    # Extract MCP service prefix from path to create unique resource identifier
+    # e.g. path="mcp/backtest/mcp" → resource="https://host/mcp/backtest"
+    resource = issuer
+    if path:
+        parts = path.strip("/").split("/")
+        if len(parts) >= 2 and parts[0] == "mcp":
+            resource = f"{issuer}/mcp/{parts[1]}"
     return JSONResponse({
-        "resource": issuer,
+        "resource": resource,
         "authorization_servers": [issuer],
         "bearer_methods_supported": ["header"],
     })
