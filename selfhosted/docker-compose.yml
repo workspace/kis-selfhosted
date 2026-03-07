@@ -81,13 +81,8 @@ services:
 
   lean-init:
     image: docker:cli
-    entrypoint: ["sh", "-c"]
-    command:
-      - |
-        cp /usr/local/bin/docker /docker-bin/docker
-        docker pull quantconnect/lean:latest
+    command: ["cp", "/usr/local/bin/docker", "/docker-bin/docker"]
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
       - docker-bin:/docker-bin
 
   backtest-backend:
