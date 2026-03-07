@@ -66,6 +66,18 @@ async def index(request: Request):
 
 # ─── OAuth 2.1 endpoints ────────────────────────────────────────────────────
 
+@app.get("/.well-known/oauth-protected-resource/{path:path}")
+@app.get("/.well-known/oauth-protected-resource")
+async def protected_resource_metadata(request: Request):
+    """RFC 9728 Protected Resource Metadata."""
+    issuer = _get_issuer(request)
+    return JSONResponse({
+        "resource": issuer,
+        "authorization_servers": [issuer],
+        "bearer_methods_supported": ["header"],
+    })
+
+
 @app.get("/.well-known/oauth-authorization-server")
 async def oauth_metadata(request: Request):
     return JSONResponse(get_metadata(_get_issuer(request)))
