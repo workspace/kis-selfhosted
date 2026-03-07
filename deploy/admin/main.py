@@ -25,7 +25,7 @@ from oauth import (
 )
 from gateway import proxy_request, match_route
 
-app = FastAPI(title="KIS Admin Gateway")
+app = FastAPI(title="KIS Admin Gateway", redirect_slashes=False)
 templates = Jinja2Templates(directory="templates")
 
 GITHUB_URL = os.environ.get(
