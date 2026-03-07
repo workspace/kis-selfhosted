@@ -121,8 +121,13 @@ async def proxy_request(request: Request) -> Response:
 
     print(f"[proxy] {upstream_url} -> {resp.status_code} Location={resp.headers.get('location', '-')}", flush=True)
 
+    # Filter hop-by-hop and encoding headers that conflict with decoded content
+    resp_headers = dict(resp.headers)
+    for h in ("content-encoding", "content-length", "transfer-encoding"):
+        resp_headers.pop(h, None)
+
     return Response(
         content=resp.content,
         status_code=resp.status_code,
-        headers=dict(resp.headers),
+        headers=resp_headers,
     )
