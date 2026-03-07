@@ -1,16 +1,13 @@
 version: "3.8"
 
 services:
-  admin-gateway:
-    build:
-      context: ..
-      dockerfile: deploy/dockerfiles/Dockerfile.admin
-    ports:
-      - "${GATEWAY_PORT:-8080}:8080"
+  kis-config-init:
+    image: python:3.13-slim
+    command: ["python3", "/scripts/init-kis-config.py"]
+    volumes:
+      - kis-config:/app/kis-config
+      - ./scripts:/scripts:ro
     environment:
-      - CLIENT_ID=${CLIENT_ID}
-      - CLIENT_SECRET=${CLIENT_SECRET}
-      - JWT_SECRET=${JWT_SECRET}
       - KIS_CONFIG_DIR=/app/kis-config
       - KIS_APP_KEY=${KIS_APP_KEY:-}
       - KIS_APP_SECRET=${KIS_APP_SECRET:-}
@@ -22,16 +19,38 @@ services:
       - KIS_PAPER_STOCK=${KIS_PAPER_STOCK:-}
       - KIS_PAPER_FUTURE=${KIS_PAPER_FUTURE:-}
       - KIS_PROD_TYPE=${KIS_PROD_TYPE:-01}
+      - KIS_USER_AGENT=${KIS_USER_AGENT:-Mozilla/5.0}
+    networks:
+      - kis-net
+
+  admin-gateway:
+    build:
+      context: ..
+      dockerfile: deploy/dockerfiles/Dockerfile.admin
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    environment:
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
       - GITHUB_URL=${GITHUB_URL:-https://github.com/koreainvestment/open-trading-api}
     volumes:
       - kis-config:/app/kis-config
     depends_on:
-      - strategy-backend
-      - strategy-frontend
-      - backtest-backend
-      - backtest-frontend
-      - backtest-mcp
-      - trading-mcp
+      kis-config-init:
+        condition: service_completed_successfully
+      strategy-backend:
+        condition: service_started
+      strategy-frontend:
+        condition: service_started
+      backtest-backend:
+        condition: service_started
+      backtest-frontend:
+        condition: service_started
+      backtest-mcp:
+        condition: service_started
+      trading-mcp:
+        condition: service_started
     networks:
       - kis-net
     restart: unless-stopped
@@ -45,6 +64,9 @@ services:
       - CORS_ORIGINS=*
     volumes:
       - kis-config:/app/kis-config
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
     networks:
       - kis-net
     restart: unless-stopped
@@ -67,6 +89,9 @@ services:
     volumes:
       - kis-config:/app/kis-config
       - lean-workspace:/app/.lean-workspace
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
     networks:
       - kis-net
     restart: unless-stopped
@@ -90,6 +115,9 @@ services:
     volumes:
       - kis-config:/app/kis-config
       - lean-workspace:/app/.lean-workspace
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
     networks:
       - kis-net
     restart: unless-stopped
@@ -104,6 +132,9 @@ services:
       - KIS_CONFIG_DIR=/app/kis-config
     volumes:
       - kis-config:/app/kis-config
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
     networks:
       - kis-net
     restart: unless-stopped

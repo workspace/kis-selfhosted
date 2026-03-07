@@ -23,7 +23,6 @@ from oauth import (
     revoke_token,
     get_metadata,
 )
-from config_manager import init_config_from_env
 from gateway import proxy_request, match_route
 
 app = FastAPI(title="KIS Admin Gateway")
@@ -53,11 +52,6 @@ def _is_authenticated(request: Request) -> bool:
 
 
 # ─── Startup ─────────────────────────────────────────────────────────────────
-
-@app.on_event("startup")
-async def startup():
-    init_config_from_env()
-
 
 # ─── Public: Landing page ────────────────────────────────────────────────────
 
