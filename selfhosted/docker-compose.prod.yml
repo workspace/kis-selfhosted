@@ -251,6 +251,7 @@ services:
       - MCP_TYPE=streamable-http
       - MCP_HOST=0.0.0.0
       - MCP_PORT=3100
+      - MCP_PATH=/mcp
       - KIS_CONFIG_DIR=/app/kis-config
     volumes:
       - kis-config:/app/kis-config
