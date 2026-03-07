@@ -94,9 +94,11 @@ async def proxy_request(request: Request) -> Response:
     if strip_prefix and path.startswith(strip_prefix):
         upstream_path = path[len(strip_prefix):]
     upstream_path = rewrite_prefix + upstream_path
-    # Normalise: ensure path starts with / and remove trailing slash
-    upstream_path = "/" + upstream_path.strip("/")
-    if upstream_path != "/" and upstream_path.endswith("/"):
+    # Normalise: ensure path starts with /
+    if not upstream_path.startswith("/"):
+        upstream_path = "/" + upstream_path
+    # Remove trailing slash only for rewritten paths (MCP) to avoid 404
+    if rewrite_prefix and upstream_path != "/" and upstream_path.endswith("/"):
         upstream_path = upstream_path.rstrip("/")
 
 
