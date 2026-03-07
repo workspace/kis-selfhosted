@@ -13,9 +13,9 @@ from oauth import verify_bearer_token
 
 ROUTE_MAP = [
     ("/strategy/api/", "http://strategy-backend:8000", "/strategy"),
-    ("/strategy/", "http://strategy-frontend:3000", "/strategy"),
+    ("/strategy/", "http://strategy-frontend:3000", ""),
     ("/backtest/api/", "http://backtest-backend:8002", "/backtest"),
-    ("/backtest/", "http://backtest-frontend:3001", "/backtest"),
+    ("/backtest/", "http://backtest-frontend:3001", ""),
     ("/mcp/backtest", "http://backtest-mcp:3846", "/mcp/backtest"),
     ("/mcp/trading", "http://trading-mcp:3100", "/mcp/trading"),
 ]
