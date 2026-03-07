@@ -109,15 +109,28 @@ services:
       - kis-net
     restart: unless-stopped
 
-  lean-init:
-    image: docker:cli
-    command: ["cp", "/usr/local/bin/docker", "/docker-bin/docker"]
-    volumes:
-      - docker-bin:/docker-bin
-
   backtest-backend:
     image: ghcr.io/workspace/kis-backtest-backend:latest
-    entrypoint: ["sh", "-c", "cp /docker-bin/docker /usr/local/bin/docker && exec uv run uvicorn backend.main:app --host 0.0.0.0 --port 8002"]
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        if ! command -v docker >/dev/null 2>&1; then
+          echo "[init] Installing Docker CLI..."
+          python3 -c "
+        import urllib.request, tarfile, io, platform
+        arch = platform.machine()
+        url = f'https://download.docker.com/linux/static/stable/{arch}/docker-27.5.1.tgz'
+        data = urllib.request.urlopen(url).read()
+        tf = tarfile.open(fileobj=io.BytesIO(data))
+        for m in tf.getmembers():
+            if m.name == 'docker/docker':
+                m.name = 'docker'
+                tf.extract(m, '/usr/local/bin')
+                break
+        print('[init] Docker CLI installed.')
+        "
+        fi
+        exec uv run uvicorn backend.main:app --host 0.0.0.0 --port 8002
     environment:
       - KIS_CONFIG_DIR=/app/kis-config
       - CORS_ORIGINS=*
@@ -126,11 +139,8 @@ services:
       - kis-config:/app/kis-config
       - lean-workspace:/app/.lean-workspace
       - /var/run/docker.sock:/var/run/docker.sock
-      - docker-bin:/docker-bin:ro
     depends_on:
       kis-config-init:
-        condition: service_completed_successfully
-      lean-init:
         condition: service_completed_successfully
     networks:
       - kis-net
@@ -177,7 +187,6 @@ services:
 volumes:
   kis-config:
   lean-workspace:
-  docker-bin:
 
 networks:
   kis-net:
