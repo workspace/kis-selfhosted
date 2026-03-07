@@ -12,22 +12,9 @@
 
 ## 아키텍처
 
-```
-인터넷 → [Nginx Proxy Manager] (HTTPS, 도메인)
-                │
-                │  하나의 도메인 → admin-gateway:8080
-                ▼
-        ┌─── admin-gateway (FastAPI) ───┐
-        │  / : 소개 페이지               │
-        │  OAuth 2.1 Client Credentials  │
-        │  세션 쿠키 / Bearer 토큰 인증  │
-        └──────────┬────────────────────┘
-                   │ 리버스 프록시
-     ┌─────────────┼──────────────────────┐
-     ▼             ▼             ▼        ▼
- /strategy/   /backtest/   /mcp/backtest  /mcp/trading
-```
+![Selfhosted Docker Architecture](selfhosted/docs/architecture.png)
 
+- **8개 서비스** (1 Init + 1 Gateway + 2 Backend + 2 Frontend + 2 MCP)가 단일 Docker 브릿지 네트워크(`kis-net`) 위에서 동작
 - 외부 포트 **8080 하나**만 노출 — 나머지는 Docker 내부 네트워크
 - 웹 UI: 세션 쿠키 인증 / MCP: OAuth 2.1 Bearer 토큰
 
