@@ -7,8 +7,8 @@
 - **Strategy Builder** — 80개 기술지표로 매매 전략 설계 + 실시간 시그널/주문
 - **Backtester** — QuantConnect Lean 기반 과거 데이터 백테스팅
 - **MCP 서버** — OAuth 2.1 인증으로 보호된 원격 MCP (Claude, Cursor 등에서 사용)
-- **관리자 UI** — 웹에서 KIS API 키/계좌 설정 관리
-- **Docker Compose** — 원커맨드 배포, Portainer 호환
+- **OAuth 2.1 게이트웨이** — Client Credentials 인증, 단일 포트 리버스 프록시
+- **Docker Compose** — 원커맨드 배포, Portainer 호환, GHCR 프리빌트 이미지
 
 ## 아키텍처
 
@@ -19,8 +19,8 @@
                 ▼
         ┌─── admin-gateway (FastAPI) ───┐
         │  / : 소개 페이지               │
-        │  OAuth 2.1 + 세션 인증         │
-        │  KIS 설정 관리 UI (/admin/)    │
+        │  OAuth 2.1 Client Credentials  │
+        │  세션 쿠키 / Bearer 토큰 인증  │
         └──────────┬────────────────────┘
                    │ 리버스 프록시
      ┌─────────────┼──────────────────────┐
@@ -44,14 +44,38 @@
 ```bash
 cd deploy
 cp .env.example .env
-# .env 파일을 편집하여 관리자 비밀번호, JWT 시크릿 등 설정
 ```
 
-### 2. 배포
+`.env` 파일에서 인증 키를 생성하여 입력합니다:
+
+```bash
+# CLIENT_ID 생성
+python3 -c "import secrets; print(secrets.token_urlsafe(16))"
+
+# CLIENT_SECRET 생성
+python3 -c "import secrets; print(secrets.token_urlsafe(32))"
+
+# JWT_SECRET 생성
+python3 -c "import secrets; print(secrets.token_urlsafe(48))"
+```
+
+KIS API 키, 계좌번호 등도 `.env`에 입력합니다.
+
+### 2a. 배포 (소스 빌드)
 
 ```bash
 cd deploy
 docker compose up -d
+```
+
+### 2b. 배포 (GHCR 프리빌트 이미지 — Portainer 권장)
+
+```bash
+# GHCR 로그인 (private 이미지)
+echo $CR_PAT | docker login ghcr.io -u <github-username> --password-stdin
+
+cd deploy
+docker compose -f docker-compose.prod.yml up -d
 ```
 
 ### 3. Nginx Proxy Manager 설정
@@ -63,11 +87,15 @@ docker compose up -d
 | SSL | Let's Encrypt |
 | WebSocket | ON |
 
-### 4. 초기 설정
+### 4. 접속 확인
 
-1. `https://kis.example.com/admin/` 접속
-2. 관리자 로그인 (`.env`에 설정한 ID/PW)
-3. KIS API 키, 계좌번호 등 입력
+| 경로 | 서비스 |
+|------|--------|
+| `https://kis.example.com/` | 소개 페이지 |
+| `https://kis.example.com/strategy/` | Strategy Builder |
+| `https://kis.example.com/backtest/` | Backtester |
+
+로그인 시 `.env`에 설정한 `CLIENT_ID` / `CLIENT_SECRET`을 입력합니다.
 
 ### 5. MCP 연결
 
@@ -82,17 +110,17 @@ Claude Desktop 또는 Cursor에서:
 }
 ```
 
-OAuth 인증이 자동으로 진행됩니다.
+MCP 클라이언트가 `/.well-known/oauth-authorization-server`를 자동 발견하여 OAuth 2.1 인증을 진행합니다.
 
 ## 환경변수
 
 | 변수 | 필수 | 설명 |
 |------|------|------|
-| `ADMIN_USERNAME` | O | 관리자 ID |
-| `ADMIN_PASSWORD` | O | 관리자 비밀번호 |
-| `JWT_SECRET` | O | JWT 서명키 (64자 랜덤) |
+| `CLIENT_ID` | O | OAuth Client ID (`python3 -c "import secrets; print(secrets.token_urlsafe(16))"`) |
+| `CLIENT_SECRET` | O | OAuth Client Secret (`python3 -c "import secrets; print(secrets.token_urlsafe(32))"`) |
+| `JWT_SECRET` | O | JWT 서명키 (`python3 -c "import secrets; print(secrets.token_urlsafe(48))"`) |
 | `GATEWAY_PORT` | - | 외부 포트 (기본: 8080) |
-| `KIS_APP_KEY` | - | 실전 App Key (admin UI로도 설정 가능) |
+| `KIS_APP_KEY` | - | 실전 App Key |
 | `KIS_APP_SECRET` | - | 실전 App Secret |
 | `KIS_PAPER_APP_KEY` | - | 모의 App Key |
 | `KIS_PAPER_APP_SECRET` | - | 모의 App Secret |
