@@ -1,0 +1,143 @@
+# Production docker-compose for Portainer / remote server
+# 소스코드 불필요 — GHCR에서 빌드된 이미지를 pull합니다.
+#
+# 사용법:
+#   1. .env 파일 작성 (cp .env.example .env && vi .env)
+#   2. docker compose -f docker-compose.prod.yml up -d
+#
+# GHCR private 이미지 사용 시 먼저 로그인:
+#   echo $CR_PAT | docker login ghcr.io -u <github-username> --password-stdin
+
+services:
+  kis-config-init:
+    image: python:3.13-slim
+    command: ["python3", "/scripts/init-kis-config.py"]
+    volumes:
+      - kis-config:/app/kis-config
+      - ./scripts:/scripts:ro
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - KIS_APP_KEY=${KIS_APP_KEY:-}
+      - KIS_APP_SECRET=${KIS_APP_SECRET:-}
+      - KIS_PAPER_APP_KEY=${KIS_PAPER_APP_KEY:-}
+      - KIS_PAPER_APP_SECRET=${KIS_PAPER_APP_SECRET:-}
+      - KIS_HTS_ID=${KIS_HTS_ID:-}
+      - KIS_ACCT_STOCK=${KIS_ACCT_STOCK:-}
+      - KIS_ACCT_FUTURE=${KIS_ACCT_FUTURE:-}
+      - KIS_PAPER_STOCK=${KIS_PAPER_STOCK:-}
+      - KIS_PAPER_FUTURE=${KIS_PAPER_FUTURE:-}
+      - KIS_PROD_TYPE=${KIS_PROD_TYPE:-01}
+      - KIS_USER_AGENT=${KIS_USER_AGENT:-Mozilla/5.0}
+    networks:
+      - kis-net
+
+  admin-gateway:
+    image: ghcr.io/workspace/kis-admin:latest
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    environment:
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
+      - GITHUB_URL=${GITHUB_URL:-https://github.com/koreainvestment/open-trading-api}
+    volumes:
+      - kis-config:/app/kis-config
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
+      strategy-backend:
+        condition: service_started
+      strategy-frontend:
+        condition: service_started
+      backtest-backend:
+        condition: service_started
+      backtest-frontend:
+        condition: service_started
+      backtest-mcp:
+        condition: service_started
+      trading-mcp:
+        condition: service_started
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  strategy-backend:
+    image: ghcr.io/workspace/kis-strategy-backend:latest
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - CORS_ORIGINS=*
+    volumes:
+      - kis-config:/app/kis-config
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  strategy-frontend:
+    image: ghcr.io/workspace/kis-strategy-frontend:latest
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  backtest-backend:
+    image: ghcr.io/workspace/kis-backtest-backend:latest
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - CORS_ORIGINS=*
+    volumes:
+      - kis-config:/app/kis-config
+      - lean-workspace:/app/.lean-workspace
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  backtest-frontend:
+    image: ghcr.io/workspace/kis-backtest-frontend:latest
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  backtest-mcp:
+    image: ghcr.io/workspace/kis-backtest-mcp:latest
+    environment:
+      - KIS_CONFIG_DIR=/app/kis-config
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=3846
+    volumes:
+      - kis-config:/app/kis-config
+      - lean-workspace:/app/.lean-workspace
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+  trading-mcp:
+    image: ghcr.io/workspace/kis-trading-mcp:latest
+    environment:
+      - MCP_TYPE=streamable-http
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=3100
+      - KIS_CONFIG_DIR=/app/kis-config
+    volumes:
+      - kis-config:/app/kis-config
+    depends_on:
+      kis-config-init:
+        condition: service_completed_successfully
+    networks:
+      - kis-net
+    restart: unless-stopped
+
+volumes:
+  kis-config:
+  lean-workspace:
+
+networks:
+  kis-net:
+    driver: bridge
