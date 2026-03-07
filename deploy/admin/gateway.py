@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import httpx
 from fastapi import Request, Response
 from starlette.responses import RedirectResponse
@@ -99,6 +100,8 @@ async def proxy_request(request: Request) -> Response:
     if request.url.query:
         upstream_url += f"?{request.url.query}"
 
+    logging.info(f"[proxy] {request.method} {path} -> {upstream_url}")
+
     # Forward headers (strip hop-by-hop)
     headers = dict(request.headers)
     for h in ("host", "transfer-encoding"):
@@ -114,6 +117,8 @@ async def proxy_request(request: Request) -> Response:
         headers=headers,
         content=body,
     )
+
+    logging.info(f"[proxy] {upstream_url} -> {resp.status_code} Location={resp.headers.get('location', '-')}")
 
     return Response(
         content=resp.content,
