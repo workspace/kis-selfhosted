@@ -47,6 +47,9 @@ jobs:
 
       - name: Build dynamic matrix
         id: set-matrix
+        env:
+          CHANGES_JSON: ${{ steps.filter.outputs.changes }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           # 전체 서비스 정의 (JSON)
           ALL_SERVICES='[
@@ -59,32 +62,24 @@ jobs:
             {"service":"trading-mcp","dockerfile":"MCP/Kis Trading MCP/Dockerfile","context":"MCP/Kis Trading MCP"}
           ]'
 
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             # 수동 실행: 전체 빌드
-            echo "matrix={\"include\":$ALL_SERVICES}" >> "$GITHUB_OUTPUT"
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            RESULT="$ALL_SERVICES"
           else
             # push: 변경된 서비스만 필터링
-            CHANGED='[]'
-            for row in $(echo "$ALL_SERVICES" | jq -c '.[]'); do
-              svc=$(echo "$row" | jq -r '.service')
-              # paths-filter 결과에서 해당 서비스 변경 여부 확인
-              changed="${{ steps.filter.outputs.changes }}"
-              if echo "$changed" | jq -e --arg s "$svc" 'index($s)' > /dev/null 2>&1; then
-                CHANGED=$(echo "$CHANGED" | jq -c --argjson item "$row" '. + [$item]')
-              fi
-            done
+            RESULT=$(echo "$ALL_SERVICES" | jq -c --argjson changes "$CHANGES_JSON" \
+              '[.[] | select(.service as $s | $changes | index($s))]')
+          fi
 
-            count=$(echo "$CHANGED" | jq 'length')
-            if [ "$count" -gt 0 ]; then
-              echo "matrix={\"include\":$CHANGED}" >> "$GITHUB_OUTPUT"
-              echo "has_changes=true" >> "$GITHUB_OUTPUT"
-            else
-              echo "matrix={\"include\":[]}" >> "$GITHUB_OUTPUT"
-              echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            fi
+          count=$(echo "$RESULT" | jq 'length')
+          echo "Changed services ($count): $(echo "$RESULT" | jq -r '[.[].service] | join(", ")')"
 
-            echo "Changed services ($count): $(echo "$CHANGED" | jq -r '[.[].service] | join(", ")')"
+          if [ "$count" -gt 0 ]; then
+            echo "matrix={\"include\":$RESULT}" >> "$GITHUB_OUTPUT"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "matrix={\"include\":[]}" >> "$GITHUB_OUTPUT"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
           fi
 
   # ── 2. 변경된 이미지만 빌드 & 푸시 ──────────────────────
