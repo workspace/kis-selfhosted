@@ -307,7 +307,6 @@ async def proxy_middleware(request: Request, call_next):
     """Intercept proxy-able paths before FastAPI router processes them."""
     path = request.url.path
     route = match_route(path)
-    print(f"[middleware] {request.method} {path} -> route={route}", flush=True)
     if route is not None:
         return await proxy_request(request)
     return await call_next(request)
