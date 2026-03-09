@@ -221,9 +221,9 @@ class KISAuth:
         Returns:
             KISAuth 인스턴스
         """
-        # mode 미지정 시 JWT jti로 자동 감지, 실패 시 "paper" fallback
+        # mode 미지정 시 JWT jti로 자동 감지, 실패 시 "live" fallback
         if mode is None:
-            mode = cls._detect_mode_from_token() or "paper"
+            mode = cls._detect_mode_from_token() or "live"
 
         # kis_auth 설정 읽기
         env = ka.getEnv()
@@ -244,8 +244,9 @@ class KISAuth:
         
         # 필수값 검증
         if not app_key or not app_secret or not account_no:
+            cfg_path = f"{ka.config_root}/kis_devlp.yaml"
             raise ValueError(
-                f"~/KIS/config/kis_devlp.yaml에 필수 설정이 없습니다.\n"
+                f"{cfg_path}에 필수 설정이 없습니다.\n"
                 f"모의투자: paper_app, paper_sec, my_paper_stock\n"
                 f"실전투자: my_app, my_sec, my_acct_stock"
             )
