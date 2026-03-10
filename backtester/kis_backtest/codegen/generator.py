@@ -6,6 +6,7 @@ StrategySchema → Lean Python 코드 변환.
 from __future__ import annotations
 
 import logging
+import os
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -30,6 +31,17 @@ from kis_backtest.strategies.base import BaseStrategy
 logger = logging.getLogger(__name__)
 
 
+def _default_data_root() -> str:
+    """Lean 컨테이너 내 데이터 루트 경로 결정.
+
+    DooD 모드: /Workspace/data  (네임드 볼륨 → /Workspace 마운트)
+    로컬 모드: /Data             (바인드 마운트 → /Data 마운트)
+    """
+    if os.environ.get("LEAN_DOCKER_VOLUME_NAME"):
+        return "/Workspace/data"
+    return "/Data"
+
+
 @dataclass
 class CodeGenConfig:
     """코드 생성 설정"""
@@ -38,6 +50,11 @@ class CodeGenConfig:
     tax_rate: float = 0.002  # 0.2% (KRX 매도세)
     slippage: float = 0.0  # 슬리피지 (기본 0%)
     initial_capital: float = 100_000_000  # 1억원
+    data_root: str = ""  # Lean 컨테이너 내 데이터 루트 (빈 문자열이면 자동 감지)
+
+    def __post_init__(self):
+        if not self.data_root:
+            self.data_root = _default_data_root()
 
 
 class LeanCodeGenerator:
@@ -409,13 +426,14 @@ from datetime import datetime, timedelta{candlestick_imports}'''
     
     def _generate_krx_data_class(self) -> str:
         """KRX 커스텀 데이터 클래스 (주식 + 지수)"""
-        return '''
+        data_root = self.config.data_root
+        return f'''
 class KRXEquity(PythonData):
     """한국 주식 커스텀 데이터"""
 
     def GetSource(self, config, date, isLive):
         symbol = config.Symbol.Value.lower()
-        source = f"/Data/equity/krx/daily/{symbol}.csv"
+        source = f"{data_root}/equity/krx/daily/{{symbol}}.csv"
         return SubscriptionDataSource(source, SubscriptionTransportMedium.LocalFile, FileFormat.Csv)
 
     def Reader(self, config, line, date, isLive):
@@ -445,7 +463,7 @@ class KRXIndex(PythonData):
 
     def GetSource(self, config, date, isLive):
         symbol = config.Symbol.Value.lower()
-        source = f"/Data/index/krx/daily/{symbol}.csv"
+        source = f"{data_root}/index/krx/daily/{{symbol}}.csv"
         return SubscriptionDataSource(source, SubscriptionTransportMedium.LocalFile, FileFormat.Csv)
 
     def Reader(self, config, line, date, isLive):
@@ -471,13 +489,14 @@ class KRXIndex(PythonData):
     
     def _generate_us_data_class(self) -> str:
         """US 커스텀 데이터 클래스"""
-        return '''
+        data_root = self.config.data_root
+        return f'''
 class USEquity(PythonData):
     """미국 주식 커스텀 데이터"""
-    
+
     def GetSource(self, config, date, isLive):
         symbol = config.Symbol.Value.lower()
-        source = f"/Data/equity/usa/daily/{symbol}.csv"
+        source = f"{data_root}/equity/usa/daily/{{symbol}}.csv"
         return SubscriptionDataSource(source, SubscriptionTransportMedium.LocalFile, FileFormat.Csv)
     
     def Reader(self, config, line, date, isLive):
